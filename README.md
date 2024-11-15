@@ -2,7 +2,7 @@
 A Food Label Scanning Application Written In Swift
 
 
-#Authors
+##Authors
 Edison Law - Lead Back End Developer
 -  Camera Scanning
 -  Allergen Keyword Database
