@@ -18,8 +18,10 @@ struct ContentView: View {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     @State private var selectedTab: Tab = .scan
     @AppStorage("selectedAllergens") private var selectedAllergensData: Data = Data() // Persisted allergen selections
-    @State private var countdown: Double = 5.0
+    @State private var countdown: Double = 3.0
     @State private var timerSubscription: Cancellable? = nil
+    @State private var isCountdownSettingsPresented = false
+    @State private var setCount: Double = 3.0
     
     enum Tab {
         case scan, allergens
@@ -107,7 +109,7 @@ struct ContentView: View {
                
                                 CameraCaptureView(onTextDetected: handleTextDetection)
                                     .onAppear {
-                                        countdown = 5.0 // Reset countdown to 5 seconds
+                                        countdown = setCount // Reset countdown to 5 seconds
                                     }
                                 
                                 // Display detected allergens
@@ -117,7 +119,7 @@ struct ContentView: View {
                                             .foregroundColor(.white)
                                             .font(.headline)
                                         
-                                        Text("Next refresh in \(String(format: "%.1f", countdown)) seconds")
+                                        Text("Next scan in \(String(format: "%.1f", countdown)) seconds")
                                             .font(.subheadline)
                                             .foregroundColor(.white)
                                         
@@ -154,7 +156,7 @@ struct ContentView: View {
                                     if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
                                         allergens = decoded
                                     }
-                                    countdown = 5.0
+                                    countdown = setCount
                                     startCountdown()
                                 }
                                 
@@ -268,7 +270,7 @@ struct ContentView: View {
                 if countdown > 0 {
                     countdown -= 0.1
                 } else {
-                    countdown = 5.0 // Reset countdown
+                    countdown = setCount // Reset countdown
 
                 }
             }
@@ -290,6 +292,7 @@ struct Allergen: Identifiable, Codable, Equatable {
 
 struct CameraCaptureView: UIViewControllerRepresentable {
     var onTextDetected: (String) -> Void
+    
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(onTextDetected: onTextDetected)
@@ -329,7 +332,7 @@ struct CameraCaptureView: UIViewControllerRepresentable {
         
         // Function to handle the timer delay
         private func startScanTimer() {
-            scanTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            scanTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
                 self?.isScanningAllowed = true
             }
         }

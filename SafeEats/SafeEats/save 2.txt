@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 import Vision
 import AVFoundation
+import Combine
+
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -16,7 +18,11 @@ struct ContentView: View {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     @State private var selectedTab: Tab = .scan
     @AppStorage("selectedAllergens") private var selectedAllergensData: Data = Data() // Persisted allergen selections
-
+    @State private var countdown: Double = 3.0
+    @State private var timerSubscription: Cancellable? = nil
+    @State private var isCountdownSettingsPresented = false
+    @State private var setCount: Double = 3.0
+    
     enum Tab {
         case scan, allergens
     }
@@ -49,7 +55,7 @@ struct ContentView: View {
     ]
     
     private let keyWords: [String: [String]] = [
-        keywords shortened for gpt
+removed for gpt
     ]
     
     @State private var detectedAllergens: [Allergen] = []
@@ -73,39 +79,16 @@ struct ContentView: View {
                                 Text("Scan")
                                     .font(.title)
                                     .foregroundColor(.white)
-                                    .padding()
-                                // Camera view
-                                /*
-                                CameraCaptureView(onTextDetected: handleTextDetection)
+                               
                                 
-                                // Display detected allergens
-                                ScrollView {
-                                    VStack(spacing: 10) {
-                                        ForEach(detectedAllergens, id: \.id) { allergen in
-                                            
-                                        let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
-                                            
-                                            
-                                            HStack {
-                                                Image(allergen.id)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 40, height: 40)
-                                                Text(allergen.name)
-                                                    .font(.headline)
-                                                    .foregroundColor(.white)
-                                                Spacer()
-                                            }
-                                            .padding()
-                                            .background(allergenIsEnabled ? Color.red : Color.gray)
-                                            .cornerRadius(8)
-                                        }
-                                    }
-                                }
-                                .padding()
-                                 */
-                                // Camera view
+                                Text("Point and hold at Food Label")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+               
                                 CameraCaptureView(onTextDetected: handleTextDetection)
+                                    .onAppear {
+                                        countdown = setCount // Reset countdown to 5 seconds
+                                    }
                                 
                                 // Display detected allergens
                                 ScrollView {
@@ -113,24 +96,37 @@ struct ContentView: View {
                                         Text("Allergens Detected By Scan")
                                             .foregroundColor(.white)
                                             .font(.headline)
-                                        ForEach(detectedAllergens, id: \.id) { allergen in
-                                            
-                                        let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
-                                            
-                                            HStack {
-                                                Image(allergen.id)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 40, height: 40)
-                                                Text(allergen.name)
-                                                    .font(.headline)
-                                                    .foregroundColor(.white)
-                                                Spacer()
+                                        
+                                        Text("Next scan in \(String(format: "%.1f", countdown)) seconds")
+                                            .font(.subheadline)
+                                            .foregroundColor(.white)
+                                        
+                                        // Create a 3-column grid layout
+                                        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+                                        
+                                        LazyVGrid(columns: columns, spacing: 10) {
+                                            ForEach(detectedAllergens, id: \.id) { allergen in
+                                                let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
+                                                
+                                                VStack {
+                                          
+                                                        Image(allergen.id)
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 30, height: 30)  // Adjust size as needed
+                                                        Text(allergen.name)
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
+                                                            .multilineTextAlignment(.center)
+                                                    
+                                                }
+                                                .padding()
+                                                .frame(maxWidth: .infinity)
+                                                .background(allergenIsEnabled ? Color.red : Color.green)
+                                                .cornerRadius(8)
                                             }
-                                            .padding()
-                                            .background(allergenIsEnabled ? Color.red : Color.green)
-                                            .cornerRadius(8)
                                         }
+                                        .padding(.horizontal)
                                     }
                                 }
                                 .padding()
@@ -138,19 +134,14 @@ struct ContentView: View {
                                     if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
                                         allergens = decoded
                                     }
+                                    countdown = setCount
+                                    startCountdown()
                                 }
                                 
                                 
                                 
                             }
                             
-        
-                                 
-
-
-
-
-
 
 
                         } else if selectedTab == .allergens {
@@ -249,89 +240,170 @@ struct ContentView: View {
             return false
         }
     }
+    
+    private func startCountdown() {
+        timerSubscription = Timer.publish(every: 0.1, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                if countdown > 0 {
+                    countdown -= 0.1
+                } else {
+                    countdown = setCount // Reset countdown
+
+                }
+            }
+    }
+
+
 }
 
 
 
-struct Allergen: Identifiable, Codable {
+struct Allergen: Identifiable, Codable, Equatable {
     var id: String
     var name: String
     var isEnabled: Bool
+    var showForThreeSeconds: Bool = false
 }
 
-/*
 
-struct CameraCaptureView: View {
-    
-    private let sampleTexts = [
-        "This product contains milk, egg, soy, peanut, sesame, and lupin.",
-        "This product contains wheat, mustard, tree nuts, fish, shellfish, and dairy.",
-        "This product contains almond, kiwi, apricot, tomato, plum, and peach.",
-        "This product contains banana, cherry, sesame, soy, peanut, and tree nuts.",
-        "This product contains mustard, corn, wheat, dairy, egg, and peanut.",
-        "This product contains lupin, peach, shellfish, fish, sesame, and soy.",
-        "This product contains banana, dairy, tree nuts, cherry, kiwi, and apricot.",
-        "This product contains wheat, milk, mustard, egg, tomato, and corn.",
-        "This product contains almond, peanut, soy, shellfish, fish, and tree nuts.",
-        "This product contains peach, plum, banana, apricot, cherry, and dairy.",
-        "This product contains sesame, mustard, corn, fish, peanut, and lupin.",
-        "This product contains soy, wheat, banana, tomato, dairy, and mustard.",
-        "This product contains egg, sesame, shellfish, milk, almond, and peanut.",
-        "This product contains plum, apricot, cherry, kiwi, peach, and tomato.",
-        "This product contains fish, shellfish, tree nuts, sesame, wheat, and lupin.",
-        "This product contains banana, peanut, almond, egg, milk, and soy.",
-        "This product contains peach, apricot, tomato, dairy, mustard, and sesame.",
-        "This product contains kiwi, corn, tree nuts, cherry, banana, and lupin.",
-        "This product contains peanut, shellfish, fish, soy, sesame, and wheat.",
-        "This product contains almond, plum, cherry, peach, apricot, and kiwi.",
-        "This product contains egg, milk, mustard, wheat, corn, and sesame.",
-        "This product contains soy, peanut, lupin, shellfish, fish, and tree nuts.",
-        "This product contains tomato, dairy, mustard, sesame, egg, and peanut.",
-        "This product contains banana, peach, apricot, cherry, kiwi, and plum.",
-        "This product contains milk, fish, shellfish, peanut, wheat, and soy."
-    ]
-    
+
+struct CameraCaptureView: UIViewControllerRepresentable {
     var onTextDetected: (String) -> Void
     
-    @State private var isProcessing = false
-    @State private var detectedText: String? = nil
 
-    var body: some View {
-        VStack {
-            
-            Text("Camera View Here")
-                .font(.largeTitle)
-                .padding()
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(onTextDetected: onTextDetected)
+    }
 
-            if isProcessing {
-                VStack {
-                    ProgressView("Processing...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .padding()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black.opacity(1).edgesIgnoringSafeArea(.all))
-            } else if let text = detectedText {
+    func makeUIViewController(context: Context) -> CameraCaptureViewController {
+        let controller = CameraCaptureViewController()
+        controller.delegate = context.coordinator
+        return controller
+    }
 
-            }
+    func updateUIViewController(_ uiViewController: CameraCaptureViewController, context: Context) {}
 
-            Button("Scan Food Label") {
-                isProcessing = true
-                detectedText = nil
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.3...2.0)) {
-                    let randomIndex = Int.random(in: 0..<sampleTexts.count)
-                    let sampleText = sampleTexts[randomIndex]
-                    detectedText = sampleText
-                    onTextDetected(sampleText)
-                    isProcessing = false
-                }
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+    class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+        var onTextDetected: (String) -> Void
+        private var request = VNRecognizeTextRequest()
+        private var scanTimer: Timer?
+        private var isScanningAllowed = true
+
+        init(onTextDetected: @escaping (String) -> Void) {
+            self.onTextDetected = onTextDetected
+            super.init()
+            setupTextRecognition()
+            startScanTimer() // Start the timer when the Coordinator initializes
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
+
+        private func setupTextRecognition() {
+            request = VNRecognizeTextRequest { [weak self] request, error in
+                guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+                let recognizedText = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: " ")
+                DispatchQueue.main.async {
+                    self?.onTextDetected(recognizedText)
+                }
+            }
+            request.recognitionLevel = .accurate
+        }
+        
+        // Function to handle the timer delay
+        private func startScanTimer() {
+            scanTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
+                self?.isScanningAllowed = true
+            }
+        }
+
+        func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+            guard isScanningAllowed else { return }  // Skip if scanning isn't allowed yet
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+
+            let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: [:])
+            do {
+                try handler.perform([request])
+                isScanningAllowed = false // Reset scanning permission after each scan
+            } catch {
+                print("Text recognition error: \(error)")
+            }
+        }
+        
+        deinit {
+            scanTimer?.invalidate()
+        }
     }
 }
 
+class CameraCaptureViewController: UIViewController {
+    var delegate: AVCaptureVideoDataOutputSampleBufferDelegate?
+    private let captureSession = AVCaptureSession()
+    private var previewLayer: AVCaptureVideoPreviewLayer?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCamera()
+    }
+
+    private func setupCamera() {
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let videoInput: AVCaptureDeviceInput
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            print("Cannot access camera")
+            return
+        }
+
+        if captureSession.canAddInput(videoInput) {
+            captureSession.addInput(videoInput)
+        }
+
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.setSampleBufferDelegate(delegate, queue: DispatchQueue.global(qos: .userInteractive))
+
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
+        }
+
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.videoGravity = .resizeAspectFill
+
+        view.layer.addSublayer(previewLayer)
+        self.previewLayer = previewLayer
+        
+        // Adjust the previewLayer frame to top half and center it
+        let screenBounds = view.bounds
+        previewLayer.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: screenBounds.width,
+            height: screenBounds.height / 2
+        )
+        
+        captureSession.startRunning()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let previewLayer = previewLayer {
+            let screenBounds = view.bounds
+            previewLayer.frame = CGRect(
+                x: 0,
+                y: 0,
+                width: screenBounds.width,
+                height: screenBounds.height
+            )
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        captureSession.stopRunning()
+    }
+}
+
+// Rest Removed for gpt
+#Preview {
+    ContentView()
+        .modelContainer(for: Item.self, inMemory: true)
+}
