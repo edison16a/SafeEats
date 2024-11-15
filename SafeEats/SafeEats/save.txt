@@ -106,6 +106,11 @@ struct ContentView: View {
                                 Text("Point and hold at Food Label")
                                     .font(.subheadline)
                                     .foregroundColor(.white)
+                                
+                                Text("Always double check the product packaging yourself")
+                                    .font(.caption)
+                                    .foregroundColor(.red)
+                                    .multilineTextAlignment(.center)
                
                                 CameraCaptureView(onTextDetected: handleTextDetection)
                                     .onAppear {
@@ -571,17 +576,24 @@ struct OnboardingView: View {
                     stepText: "1. Go to allergens page\n2. Toggle the allergens that you have\n3. Scan"
                 )
                 .tag(2)
+                OnboardingPageView(
+                    title: "Terms Of Use",
+                    imageName: "",
+                    description: "Scroll To View Full Terms Of Use",
+                    stepText: "1. SafeEats is a helpful tool designed to scan product labels for allergens in food labels. While it’s a powerful resource, it may not always be 100% accurate due to factors like user error, misprints, poor lighting, or camera issues, among other technical or non-technical limitations. SafeEats and its creators are not liable for any errors in the app or on product packaging, nor for any damages resulting from misuse of the app.\n2. The app may not include every word for all products or every ingredient associated with a specific allergen group. The information provided by SafeEats is intended solely for informational purposes and should not be considered medical advice. For any dietary concerns, please consult a certified dietitian or doctor. Food or drink manufacturers may change ingredients, and packaging could be incomplete or incorrect. SafeEats simply identifies words on labels and does not make any judgments about their potential effects on the user.\n3.If you have allergies or intolerances, please do not rely on SafeEats alone to determine if a product is safe for you, as we cannot guarantee the accuracy of our results. We do not assume any liability for allergic reactions or intolerances to food or drinks consumed based on the information provided in the app. As noted on the scanner screen, always double-check the product packaging yourself."
+                )
+                .tag(3)
             }
             .tabViewStyle(PageTabViewStyle())
 
             .padding(.top, 20)
 
             // Show "Get Started" only on the last page
-            if currentPage == 2 {
+            if currentPage == 3 {
                 Button(action: {
                     hasSeenOnboarding = true
                 }) {
-                    Text("Get Started")
+                    Text("I Agree")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
@@ -603,36 +615,42 @@ struct OnboardingPageView: View {
         ZStack {
             Color.black // Background color for the view
                 .ignoresSafeArea()
-
-            VStack(spacing: 20) {
-                Text(title)
-                    .font(.largeTitle)
-                    .bold()
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 300)
-
-                Text(description)
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-
-                if let steps = stepText {
-                    Text(steps)
-                        .font(.subheadline)
+            ScrollView{
+                VStack(spacing: 20) {
+                    Text(title)
+                        .font(.largeTitle)
+                        .bold()
                         .foregroundColor(.white)
-                        .padding(.top, 10)
                         .multilineTextAlignment(.center)
+                        .padding()
+                    
+                    if imageName != ""{
+                        Image(imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 300)
+                    }
+                    
+                    Text(description)
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    
+                    if let steps = stepText {
+                        Text(steps)
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            .padding(.top, 10)
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    
+                    
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // Expand VStack to take full space
+                .padding()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity) // Expand VStack to take full space
-            .padding()
         }
 
         .padding()
