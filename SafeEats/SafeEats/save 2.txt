@@ -1,0 +1,337 @@
+//
+//  ContentView.swift
+//  SafeEats
+//
+//  Created by Edison Law on 11/13/24.
+//
+
+import SwiftUI
+import SwiftData
+import Vision
+import AVFoundation
+
+struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var items: [Item]
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    @State private var selectedTab: Tab = .scan
+    @AppStorage("selectedAllergens") private var selectedAllergensData: Data = Data() // Persisted allergen selections
+
+    enum Tab {
+        case scan, allergens
+    }
+    
+    // Sample allergens list
+    @State private var allergens: [Allergen] = [
+        Allergen(id: "peanut", name: "Peanut", isEnabled: false),
+        Allergen(id: "dairy", name: "Dairy", isEnabled: false),
+        Allergen(id: "gluten", name: "Gluten", isEnabled: false),
+        Allergen(id: "egg", name: "Egg", isEnabled: false),
+        Allergen(id: "fish", name: "Fish", isEnabled: false),
+        Allergen(id: "shellfish", name: "Shellfish", isEnabled: false),
+        Allergen(id: "meat", name: "Meat", isEnabled: false),
+        Allergen(id: "soy", name: "Soy", isEnabled: false),
+        Allergen(id: "wheat", name: "Wheat", isEnabled: false),
+        Allergen(id: "sesame", name: "Sesame", isEnabled: false),
+        Allergen(id: "treeNut", name: "Tree Nut", isEnabled: false),
+        Allergen(id: "corn", name: "Corn", isEnabled: false),
+        Allergen(id: "mustard", name: "Mustard", isEnabled: false),
+        Allergen(id: "celery", name: "Celery", isEnabled: false),
+        Allergen(id: "lupin", name: "Lupin", isEnabled: false),
+        Allergen(id: "sulfite", name: "Sulfite", isEnabled: false),
+        Allergen(id: "peach", name: "Peach", isEnabled: false),
+        Allergen(id: "plum", name: "Plum", isEnabled: false),
+        Allergen(id: "apricot", name: "Apricot", isEnabled: false),
+        Allergen(id: "tomato", name: "Tomato", isEnabled: false),
+        Allergen(id: "cherry", name: "Cherry", isEnabled: false),
+        Allergen(id: "kiwi", name: "Kiwi", isEnabled: false),
+        Allergen(id: "banana", name: "Banana", isEnabled: false)
+    ]
+    
+    private let keyWords: [String: [String]] = [
+        keywords shortened for gpt
+    ]
+    
+    @State private var detectedAllergens: [Allergen] = []
+    
+    // Function to save allergen states to AppStorage
+    private func saveAllergens() {
+        if let encoded = try? JSONEncoder().encode(allergens) {
+            selectedAllergensData = encoded
+        }
+    }
+
+    var body: some View {
+        if hasSeenOnboarding {
+            VStack {
+                // Main content area based on the selected tab
+                NavigationView {
+                    VStack {
+                        if selectedTab == .scan {
+
+                            VStack {
+                                Text("Scan")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                // Camera view
+                                /*
+                                CameraCaptureView(onTextDetected: handleTextDetection)
+                                
+                                // Display detected allergens
+                                ScrollView {
+                                    VStack(spacing: 10) {
+                                        ForEach(detectedAllergens, id: \.id) { allergen in
+                                            
+                                        let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
+                                            
+                                            
+                                            HStack {
+                                                Image(allergen.id)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 40, height: 40)
+                                                Text(allergen.name)
+                                                    .font(.headline)
+                                                    .foregroundColor(.white)
+                                                Spacer()
+                                            }
+                                            .padding()
+                                            .background(allergenIsEnabled ? Color.red : Color.gray)
+                                            .cornerRadius(8)
+                                        }
+                                    }
+                                }
+                                .padding()
+                                 */
+                                // Camera view
+                                CameraCaptureView(onTextDetected: handleTextDetection)
+                                
+                                // Display detected allergens
+                                ScrollView {
+                                    VStack(spacing: 10) {
+                                        Text("Allergens Detected By Scan")
+                                            .foregroundColor(.white)
+                                            .font(.headline)
+                                        ForEach(detectedAllergens, id: \.id) { allergen in
+                                            
+                                        let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
+                                            
+                                            HStack {
+                                                Image(allergen.id)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 40, height: 40)
+                                                Text(allergen.name)
+                                                    .font(.headline)
+                                                    .foregroundColor(.white)
+                                                Spacer()
+                                            }
+                                            .padding()
+                                            .background(allergenIsEnabled ? Color.red : Color.green)
+                                            .cornerRadius(8)
+                                        }
+                                    }
+                                }
+                                .padding()
+                                .onAppear {
+                                    if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
+                                        allergens = decoded
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                            
+        
+                                 
+
+
+
+
+
+
+
+                        } else if selectedTab == .allergens {
+                            // Allergens tab content
+                            Text("Allergens")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding()
+
+                            ScrollView {
+                                VStack {
+                                    ForEach(allergens) { allergen in
+                                        HStack {
+                                            Image(allergen.id) // Using allergen ID as system icon
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 40, height: 40)
+                                            Text(allergen.name)
+                                                .font(.body)
+                                                .foregroundColor(.white)
+                                            Spacer()
+                                            Toggle("", isOn: Binding(
+                                                get: { allergen.isEnabled },
+                                                set: { newValue in
+                                                    if let index = allergens.firstIndex(where: { $0.id == allergen.id }) {
+                                                        allergens[index].isEnabled = newValue
+                                                        saveAllergens() // Save after toggle change
+                                                    }
+                                                }
+                                            ))
+                                            .labelsHidden()
+                                            .toggleStyle(SwitchToggleStyle(tint: .blue))
+                                        }
+                                        .padding()
+                                        .background(Color(.darkGray))
+                                        .cornerRadius(5)
+                                    }
+                                }
+                            }
+                            .background(Color.black)
+                            .onAppear {
+                                if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
+                                    allergens = decoded
+                                }
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: .infinity)
+                    .padding()
+                    .background(Color.black)
+                    .ignoresSafeArea(edges: .bottom)
+                }
+                
+                // Custom tab bar at the bottom
+                HStack {
+                    TabBarItem(
+                        title: "Scan",
+                        iconName: selectedTab == .scan ? "camera.fill" : "camera",
+                        isSelected: selectedTab == .scan
+                    ) {
+                        selectedTab = .scan
+                    }
+                    
+                    Spacer().frame(width: 80) // Adjusted space between items
+                    
+                    TabBarItem(
+                        title: "Allergens",
+                        iconName: selectedTab == .allergens ? "exclamationmark.shield.fill" : "exclamationmark.shield",
+                        isSelected: selectedTab == .allergens
+                    ) {
+                        selectedTab = .allergens
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 60)
+                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea(edges: .top)
+                .background(Color(.darkGray))
+                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea(edges: .top)
+            }
+        } else {
+            OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+                .background(Color(hex: "#94b9ff").ignoresSafeArea())
+        }
+        // Step 3: Decode allergen data when the view appears
+
+    }
+    
+    private func handleTextDetection(scannedText: String) {
+        detectedAllergens = allergens.filter { allergen in
+            if let keywords = keyWords[allergen.id] {
+                return keywords.contains { scannedText.lowercased().contains($0) }
+            }
+            return false
+        }
+    }
+}
+
+
+
+struct Allergen: Identifiable, Codable {
+    var id: String
+    var name: String
+    var isEnabled: Bool
+}
+
+/*
+
+struct CameraCaptureView: View {
+    
+    private let sampleTexts = [
+        "This product contains milk, egg, soy, peanut, sesame, and lupin.",
+        "This product contains wheat, mustard, tree nuts, fish, shellfish, and dairy.",
+        "This product contains almond, kiwi, apricot, tomato, plum, and peach.",
+        "This product contains banana, cherry, sesame, soy, peanut, and tree nuts.",
+        "This product contains mustard, corn, wheat, dairy, egg, and peanut.",
+        "This product contains lupin, peach, shellfish, fish, sesame, and soy.",
+        "This product contains banana, dairy, tree nuts, cherry, kiwi, and apricot.",
+        "This product contains wheat, milk, mustard, egg, tomato, and corn.",
+        "This product contains almond, peanut, soy, shellfish, fish, and tree nuts.",
+        "This product contains peach, plum, banana, apricot, cherry, and dairy.",
+        "This product contains sesame, mustard, corn, fish, peanut, and lupin.",
+        "This product contains soy, wheat, banana, tomato, dairy, and mustard.",
+        "This product contains egg, sesame, shellfish, milk, almond, and peanut.",
+        "This product contains plum, apricot, cherry, kiwi, peach, and tomato.",
+        "This product contains fish, shellfish, tree nuts, sesame, wheat, and lupin.",
+        "This product contains banana, peanut, almond, egg, milk, and soy.",
+        "This product contains peach, apricot, tomato, dairy, mustard, and sesame.",
+        "This product contains kiwi, corn, tree nuts, cherry, banana, and lupin.",
+        "This product contains peanut, shellfish, fish, soy, sesame, and wheat.",
+        "This product contains almond, plum, cherry, peach, apricot, and kiwi.",
+        "This product contains egg, milk, mustard, wheat, corn, and sesame.",
+        "This product contains soy, peanut, lupin, shellfish, fish, and tree nuts.",
+        "This product contains tomato, dairy, mustard, sesame, egg, and peanut.",
+        "This product contains banana, peach, apricot, cherry, kiwi, and plum.",
+        "This product contains milk, fish, shellfish, peanut, wheat, and soy."
+    ]
+    
+    var onTextDetected: (String) -> Void
+    
+    @State private var isProcessing = false
+    @State private var detectedText: String? = nil
+
+    var body: some View {
+        VStack {
+            
+            Text("Camera View Here")
+                .font(.largeTitle)
+                .padding()
+
+            if isProcessing {
+                VStack {
+                    ProgressView("Processing...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black.opacity(1).edgesIgnoringSafeArea(.all))
+            } else if let text = detectedText {
+
+            }
+
+            Button("Scan Food Label") {
+                isProcessing = true
+                detectedText = nil
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.3...2.0)) {
+                    let randomIndex = Int.random(in: 0..<sampleTexts.count)
+                    let sampleText = sampleTexts[randomIndex]
+                    detectedText = sampleText
+                    onTextDetected(sampleText)
+                    isProcessing = false
+                }
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+        }
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+    }
+}
+
