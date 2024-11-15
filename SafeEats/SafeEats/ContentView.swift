@@ -201,6 +201,23 @@ struct ContentView: View {
                                         .background(Color(.darkGray))
                                         .cornerRadius(5)
                                     }
+                                    
+                                    Button(action: {
+                                        if let url = URL(string: "https://forms.gle/Ehd5V2Vcz9wqbQnL6") {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }) {
+                                        Text("Allergen Not Listed? Request It")
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.blue)
+                                            .cornerRadius(8)
+                                    }
+                                    .padding(.top, 16)
+                                    
                                 }
                             }
                             .background(Color.black)
