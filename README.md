@@ -62,13 +62,12 @@ Join the SafeEats Community
 We want to make food safety simpler and safer with SafeEats. Download now to stay safe and informed with every bite!
 
 # Pictures
-![logofinal](https://github.com/user-attachments/assets/b91f4212-6047-4678-b900-0c924a863c9c)
-![darkmode](https://github.com/user-attachments/assets/064ed2c7-361e-4292-854d-ff44b90935be)
-![Screenshot_2024-11-14_at_9 33 32_AM_optimized](https://github.com/user-attachments/assets/677751b2-371f-49c9-8e8f-8b9445002a52)
+<img width="848" alt="Screenshot 2024-11-26 at 3 27 13 PM" src="https://github.com/user-attachments/assets/01699d36-ff39-4748-b145-eaa51b9472ca">
+<img width="849" alt="Screenshot 2024-11-26 at 3 27 26 PM" src="https://github.com/user-attachments/assets/63b4ef95-1a98-4d13-ae84-579bce0564d6">
+<img width="392" alt="Screenshot 2024-11-26 at 3 27 42 PM" src="https://github.com/user-attachments/assets/96a64e4f-a628-4bbe-803b-48c1e1d7b9d0">
+![Screenshot_2024-11-13_at_7 06 35_PM-removebg-preview 1](https://github.com/user-attachments/assets/6b5aa11b-bd54-4219-9e7a-5c8825024bc9)
 
-![newslide2 1](https://github.com/user-attachments/assets/4a75892c-37cc-4a06-8221-0d1b6523e370)
-![Screenshot_2024-11-13_at_7 06 35_PM-removebg-preview 1](https://github.com/user-attachments/assets/be39813d-1fef-484b-bf15-01d80778e972)
-<img width="117" alt="Screenshot 2024-11-14 at 8 07 09 PM 1" src="https://github.com/user-attachments/assets/7498b1f6-042c-45b5-b546-f135298c45b5">
+
 
 
 
