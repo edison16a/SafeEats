@@ -68,11 +68,7 @@ We want to make food safety simpler and safer with SafeEats. Download now to sta
 # Pictures
 <img width="392" alt="Screenshot 2024-11-26 at 3 27 42 PM" src="https://github.com/user-attachments/assets/96a64e4f-a628-4bbe-803b-48c1e1d7b9d0">
 
-![390175466-c6587fb7-932f-499f-af4f-725af389e11f-removebg-preview](https://github.com/user-attachments/assets/f6aca97c-4465-4230-8a34-a42243ad5a5e)
-
-
-
-
+![Screenshot_2024-11-13_at_7 06 35_PM-removebg-preview 1](https://github.com/user-attachments/assets/648c1b43-a3d5-4618-8482-e226d4e06ab3)
 
 
 
