@@ -62,6 +62,7 @@ struct ContentView: View {
     // ADDED CODE: Some chemical synonyms for certain allergens
     private let keyWords: [String: [String]] = [
         "dairy": [
+            // Original words (unchanged)
             "dairy", "milk", "cheese", "butter", "cream", "yogurt", "curds",
             "ghee", "whey", "casein", "lactose", "custard", "gelato", "pudding",
             "sour cream", "kefir", "ricotta", "cottage cheese", "quark", "ice cream",
@@ -73,17 +74,243 @@ struct ContentView: View {
             "yogurt culture", "gouda", "buttermilk powder", "curd", "parmesan", "caseinate", "whey protein", "lactic acid", "milk fat",
             "skim solids", "ghee", "cream solids", "cultured cream", "ricotta", "ice cream base", "custard mix", "cream powder",
             "milk protein concentrate", "clarified butter", "cheese culture",
-            // New chemical synonyms (for example purposes):
-            "milk chemical e140", "milk chemical e101"
+            "milk chemical e140", "milk chemical e101",
+
+            // +++ Chinese (20 synonyms) +++
+            "牛奶",
+            "鲜奶",
+            "乳制品",
+            "奶液",
+            "羊奶",
+            "酸奶",
+            "奶水",
+            "奶渣",
+            "奶皮",
+            "乳酪",
+            "特浓奶",
+            "脱脂奶",
+            "全脂奶",
+            "巴氏杀菌奶",
+            "消毒奶",
+            "乳白液",
+            "炼乳",
+            "奶酪块",
+            "再制奶",
+            "人造奶油",
+
+            // +++ Japanese (20 synonyms) +++
+            "ミルク",
+            "ヨーグルト",
+            "チーズ",
+            "クリーム",
+            "バター",
+            "粉ミルク",
+            "生クリーム",
+            "無脂肪乳",
+            "全脂乳",
+            "加糖練乳",
+            "ホイップクリーム",
+            "発酵乳",
+            "乳タンパク",
+            "脱脂粉乳",
+            "スキムミルク",
+            "アイスクリーム原料",
+            "バターミルク",
+            "カッテージチーズ",
+            "モッツァレラ",
+            "ヨーグルトドリンク",
+
+            // +++ Dutch (20 synonyms) +++
+            "Melk",
+            "Verse melk",
+            "Zuivel",
+            "Karnemelk",
+            "Room",
+            "Kaasblok",
+            "Slagroom",
+            "Volle melk",
+            "Magere melk",
+            "Halfvolle melk",
+            "Gecondenseerde melk",
+            "Gepoederde melk",
+            "Boterolie",
+            "Kaasfondue",
+            "Graskaas",
+            "Boerenkaas",
+            "Wrongel",
+            "Kwark",
+            "Zure room",
+            "Kaasplak",
+
+            // +++ German (20 synonyms) +++
+            "Milch",
+            "Magermilch",
+            "Vollmilch",
+            "Buttermilch",
+            "Quark",
+            "Käse",
+            "Butter",
+            "Sahne",
+            "Schmand",
+            "H-Milch",
+            "Kondensmilch",
+            "Milchpulver",
+            "Joghurt",
+            "Kefir",
+            "Dickmilch",
+            "Molke",
+            "Molkenpulver",
+            "Hartkäse",
+            "Frischkäse",
+            "Rahm",
+
+            // +++ Spanish (20 synonyms) +++
+            "Leche",
+            "Leche entera",
+            "Leche desnatada",
+            "Mantequilla",
+            "Queso fresco",
+            "Queso madurado",
+            "Crema batida",
+            "Nata líquida",
+            "Leche evaporada",
+            "Leche en polvo",
+            "Yogur",
+            "Batido lácteo",
+            "Queso crema",
+            "Suero lácteo",
+            "Requesón",
+            "Cuajada",
+            "Leche condensada",
+            "Gelatina de leche",
+            "Cuajada láctea",
+            "Grasa láctea"
         ],
+
+        // -----------------------------
+        // PEANUT
+        // -----------------------------
         "peanut": [
             "peanut", "peanut oil", "peanut butter", "peanut flour", "groundnut", "arachis oil",
             "peanut meal", "roasted peanuts", "salted peanuts", "blanched peanuts", "honey roasted peanuts",
             "crushed peanuts", "dry roasted peanuts", "raw peanuts", "peanut paste", "crunchy peanut butter",
             "smooth peanut butter", "boiled peanuts", "flavored peanuts", "spicy peanuts", "chocolate-covered peanuts",
-            "peanut sauce", "peanut brittle", "peanut protein", "peanut candy"
-            // You could add chemical synonyms if they exist
+            "peanut sauce", "peanut brittle", "peanut protein", "peanut candy",
+
+            // +++ Chinese (20 synonyms) +++
+            "花生",
+            "花生碎",
+            "花生糊",
+            "花生仁",
+            "花生酱",
+            "花生米",
+            "生花生",
+            "熟花生",
+            "花生颗粒",
+            "花生粉",
+            "带壳花生",
+            "红皮花生",
+            "香脆花生",
+            "花生香油",
+            "五香花生",
+            "花生调味酱",
+            "花生芝麻酱",
+            "花生制品",
+            "花生碎粒",
+            "花生奶",
+
+            // +++ Japanese (20 synonyms) +++
+            "ピーナッツ",
+            "落花生",
+            "ピーナッツバター",
+            "ピーナッツ粉",
+            "炒りピーナッツ",
+            "ピーナッツソース",
+            "生ピーナッツ",
+            "殻付きピーナッツ",
+            "ピーナッツペースト",
+            "甘辛ピーナッツ",
+            "塩味ピーナッツ",
+            "蜂蜜ピーナッツ",
+            "粗挽きピーナッツ",
+            "細挽きピーナッツ",
+            "ピーナッツかりんとう",
+            "揚げピーナッツ",
+            "ピーナッツフラワー",
+            "唐辛子ピーナッツ",
+            "煮ピーナッツ",
+            "ピーナッツ風味",
+
+            // +++ Dutch (20 synonyms) +++
+            "Pinda",
+            "Pindakaas",
+            "Geroosterde pinda",
+            "Gezouten pinda",
+            "Pindameel",
+            "Pindapoeder",
+            "Rauwe pinda",
+            "Honingpinda",
+            "Pindakrullen",
+            "Pindastukjes",
+            "Pindapuree",
+            "Pindamix",
+            "Pindaolie",
+            "Chilipinda",
+            "Pindacrisp",
+            "Gecoate pinda",
+            "Gekaramelliseerde pinda",
+            "Pindasnack",
+            "Pindarotsjes",
+            "Aardnoot",
+
+            // +++ German (20 synonyms) +++
+            "Erdnuss",
+            "Erdnussmus",
+            "Erdnussöl",
+            "Geröstete Erdnuss",
+            "Gesalzene Erdnuss",
+            "Erdnusskrokant",
+            "Erdnusskerne",
+            "Geschälte Erdnuss",
+            "Erdnussaufstrich",
+            "Erdnussdip",
+            "Erdnussflocken",
+            "Erdnusskonfekt",
+            "Honig-Erdnuss",
+            "Würzige Erdnuss",
+            "Erdnussstückchen",
+            "Erdnuss-Snack",
+            "Erdnuss-Krokant-Riegel",
+            "Erdnuss-Mahl",
+            "Erdnuss-Schale",
+            "Chili-Erdnuss",
+
+            // +++ Spanish (20 synonyms) +++
+            "Cacahuete",
+            "Maní",
+            "Crema de cacahuate",
+            "Aceite de cacahuete",
+            "Cacahuete tostado",
+            "Cacahuete salado",
+            "Cacahuete con miel",
+            "Pasta de cacahuete",
+            "Harina de cacahuete",
+            "Cacahuetes picados",
+            "Cacahuetes fritos",
+            "Cacahuetes garrapiñados",
+            "Cacahuetes crudos",
+            "Cacahuetes al chile",
+            "Manteca de maní",
+            "Maní triturado",
+            "Maní crocante",
+            "Maní con cáscara",
+            "Polvo de cacahuete",
+            "Salsa de cacahuete"
         ],
+
+        // -----------------------------
+        // GLUTEN
+        // -----------------------------
         "gluten": [
             "wheat", "barley", "rye", "malt", "triticale", "spelt", "farro", "durum", "semolina",
             "einkorn", "graham", "bulgur", "kamut", "couscous", "bread flour", "cake flour", "cracker meal",
@@ -95,9 +322,120 @@ struct ContentView: View {
             "rye extract", "wheat derivative", "barley beta-glucan", "barley malt", "rye flakes", "triticale", "farro", "emmer",
             "semolina", "wheat germ", "kamut", "durum flour", "einkorn", "spelt", "couscous", "bulgur", "seitan", "malt extract",
             "graham flour", "starch derivative", "modified starch", "cracked wheat", "cake flour", "vital gluten", "matzo meal",
-            "gluten peptides", "protein hydrolysate", "grain-based emulsifier"
+            "gluten peptides", "protein hydrolysate", "grain-based emulsifier",
+
+            // +++ Chinese (20 synonyms) +++
+            "麸质",
+            "小麦粉",
+            "黑麦粉",
+            "大麦粉",
+            "麸皮",
+            "面筋",
+            "胶质蛋白",
+            "小麦胚芽",
+            "烤麸",
+            "面包粉",
+            "面糊",
+            "麸皮糊",
+            "面筋粉",
+            "麦芽精",
+            "小麦淀粉",
+            "复合淀粉",
+            "面包糠",
+            "中筋面粉",
+            "高筋面粉",
+            "低筋面粉",
+
+            // +++ Japanese (20 synonyms) +++
+            "グルテン",
+            "小麦粉",
+            "ライ麦",
+            "大麦",
+            "麦芽",
+            "グルテン粉",
+            "強力粉",
+            "薄力粉",
+            "中力粉",
+            "小麦ふすま",
+            "ライ麦粉末",
+            "大麦抽出物",
+            "グルテンペプチド",
+            "グルテンミール",
+            "小麦グルテン",
+            "セイタン",
+            "グルテンエキス",
+            "穀物エキス",
+            "タンパク加水分解物",
+            "ライ麦エキス",
+
+            // +++ Dutch (20 synonyms) +++
+            "Gluten",
+            "Tarwebloem",
+            "Roggebloem",
+            "Gerstemout",
+            "Speltmeel",
+            "Triticalegries",
+            "Tarwezetmeel",
+            "Volkorenmeel",
+            "Bloem",
+            "Griesmeel",
+            "Grahammeel",
+            "Roggebrood",
+            "Maltmeel",
+            "Glutenmeel",
+            "Speltvlokken",
+            "Tarwezemelen",
+            "Geroosterde mout",
+            "Triticum aestivum",
+            "Glutenrijke bloem",
+            "Stikstofextract uit tarwe",
+
+            // +++ German (20 synonyms) +++
+            "Gluten",
+            "Weizenmehl",
+            "Roggenmehl",
+            "Gerstenmalz",
+            "Dinkelmehl",
+            "Emmermehl",
+            "Kamutmehl",
+            "Hartweizen",
+            "Weizenkleie",
+            "Weizenkleber",
+            "Malzextrakt",
+            "Graupen",
+            "Mischkornmehl",
+            "Schrot",
+            "Weizenstärke",
+            "Klebereiweiß",
+            "Seitan",
+            "Weizengrieß",
+            "Vollkornmehl",
+            "Gerstenflocken",
+
+            // +++ Spanish (20 synonyms) +++
+            "Gluten",
+            "Trigo",
+            "Cebada",
+            "Centeno",
+            "Maltosa",
+            "Sémola de trigo",
+            "Harina de fuerza",
+            "Harina integral",
+            "Harina refinada",
+            "Salvado de trigo",
+            "Extracto de cebada",
+            "Espelta",
+            "Amidón de trigo",
+            "Almidón modificado",
+            "Avena (a veces con gluten)",
+            "Proteína de trigo",
+            "Emulsionante de cereal",
+            "Trigo maltado",
+            "Masa madre de centeno",
+            "Cuscús (de trigo)"
         ],
         "egg": [
+            // Original words (unchanged):
             "egg", "albumin", "egg white", "egg yolk", "egg powder", "meringue", "egg wash", "dried egg",
             "powdered egg", "lysozyme", "globulin", "ovalbumin", "ovomucoid", "lecithin", "egg solids", "whole egg",
             "pasteurized egg", "egg product", "liquid egg", "freeze-dried egg", "scrambled egg", "hard-boiled egg",
@@ -109,10 +447,25 @@ struct ContentView: View {
             "egg lecithin", "ovoglobulin", "powdered yolk", "liquid whites", "lyophilized albumen", "dried whites", "pasteurized yolk",
             "omelet base", "freeze-dried yolk", "emulsifier blend", "protein fortifier", "liquid protein", "egg powder substitute",
             "egg-derived binder", "stabilizer blend", "egg solid concentrate", "glazing solution", "lysozyme enzyme", "protein extract",
-            "binder compound", "aerating agent"
-            // Add chemical synonyms if needed
+            "binder compound", "aerating agent",
+
+            // ADDED: Foreign words & chemical synonyms
+            // Chinese
+            "鸡蛋 (Chinese)",
+            // Japanese
+            "卵 (Japanese)",
+            // Dutch
+            "Ei (Dutch)",
+            // German
+            "Ei (German)",
+            // Spanish
+            "Huevo (Spanish)",
+            // Additional chemical references
+            "E161b (lutein from egg yolks sometimes)",
+            "Ovotransferrin (egg white protein)"
         ],
         "fish": [
+            // Original words (unchanged):
             "fish", "anchovy", "cod", "salmon", "tuna", "trout", "herring", "sardine", "mackerel", "bass",
             "flounder", "grouper", "snapper", "halibut", "catfish", "tilapia", "pollock", "fish oil", "fish sauce",
             "fish paste", "fish stock", "imitation crab", "surimi", "fish fillet", "smoked fish", "pickled fish",
@@ -122,28 +475,374 @@ struct ContentView: View {
             "preserved fish", "salted fish", "fish paste mix", "dehydrated fish", "anchovy paste", "fish sauce", "roe", "caviar",
             "surimi", "mackerel oil", "pollock extract", "fish meal", "omega-3 oil", "fish gelatin", "herring concentrate",
             "sardine flakes", "trout essence", "tuna stock", "cod protein", "bass hydrolysate", "halibut powder", "flounder collagen",
-            "snapper extract", "smoked slices", "imitation crab", "seafood flavor", "pickled roe", "sea protein", "marine gelatin"
+            "snapper extract", "smoked slices", "imitation crab", "seafood flavor", "pickled roe", "sea protein", "marine gelatin",
+
+            // ADDED: Foreign words & chemical synonyms
+            // Chinese
+            "鱼 (Chinese)",
+            // Japanese
+            "魚 (Japanese)",
+            // Dutch
+            "Vis (Dutch)",
+            // German
+            "Fisch (German)",
+            // Spanish
+            "Pescado (Spanish)",
+            // Additional chemical references
+            "E640 (glycine - can be fish-based)",
+            "Ictyic protein (scientific reference)"
         ],
-        // We won't remove anything from your existing arrays, just possibly add chemical synonyms as an example
-        "shellfish": ["shrimp","crab","lobster","prawn","crayfish","mussels","clams","oyster","scallops","cockles","barnacles","langoustine","mantis shrimp","sea urchin","abalone","shellfish extract","shellfish broth","dried shellfish","shellfish powder","seafood mix","cuttlefish","whelk","scampi","shellfish oil","shellfish sauce","shellfish paste","shellfish","crustacean","shellfish protein","shellfish-derived broth","shellfish concentrate","shellfish essence","dried crustaceans","crustacean powder","shellfish collagen","fermented shellfish","shellfish meal","shellfish additive","shellfish peptide","shellfish extract powder","preserved shellfish","crushed shellfish shells","shellfish-based sauce","shellfish seasonings","processed shellfish","imitation lobster","shellfish-derived gelatin","shellfish hydrolysate","crab meat extract","shrimp shell powder","crustacean protein","dehydrated shrimp","crustacean","langoustine","prawn tails","crayfish extract","scallop powder","clam broth","oyster sauce","mussels","barnacle shells","cuttlefish ink","sea urchin roe","abalone slices","cockle meat","shrimp powder","seafood stock","marine protein","dried crustacean","shell broth","mollusk extract","crustacean hydrolysate","langoustine bisque","oyster concentrate","seafood peptide","shrimp collagen","seafood flavor enhancer"],
-        "meat": ["beef","pork","chicken","turkey","lamb","veal","bacon","sausage","ham","prosciutto","salami","jerky","duck","goat","rabbit","venison","bison","meatballs","meatloaf","ground meat","processed meat","cold cuts","deli meat","steak","roast","meat extract","meat flavoring","meat seasoning","meat paste","ground meat concentrate","fermented meat","processed meat product","meat collagen","meat-based broth","dried meat flakes","smoked meat","meat hydrolysate","meat-derived protein","meat essence","cooked meat powder","meat glaze","cured meat","meat additive","meat peptide","meat granules","mechanically separated meat","meat emulsifier","meat gelatin","meat flavor enhancer","dehydrated meat","bacon bits","cold cuts","jerky","sausage casing","gelatin","broth concentrate","lard","tallow","meat broth","animal protein","processed fat","meat extract","marrow concentrate","beef collagen","pork hydrolysate","meat glaze","roast drippings","bone broth","poultry gelatin","steak essence","meat seasoning","ham base","lamb powder","turkey stock","meat paste"],
-        "soy": ["soy","soybean","soy lecithin","soy protein","tofu","edamame","soy milk","tempeh","soy sauce","tamari","miso","natto","soy flour","textured vegetable protein","hydrolyzed soy protein","soy nuts","fermented soy","soy paste","soy meal","soy concentrate","soy isolate","soya","bean curd","soy oil","soy extract","soy","soy emulsion","soy lecithin extract","fermented soybeans","soy hydrolysate","soy isoflavones","soy protein isolate","soy protein concentrate","toasted soybeans","soy peptides","soy-based emulsifier","soy-derived protein","soy gum","soy milk powder","soybean oil residue","soy flour blend","soy sauce powder","soy protein hydrolysate","soy-based broth","soy protein fragments","soy milk solids","fermented soy powder","defatted soy flour","soy extract concentrate","soy-based additive","edamame","tofu","textured protein","hydrolyzed protein","natto","tempeh","soybean derivative","miso paste","tamari sauce","lecithin emulsifier","vegetable oil blend","plant protein isolate","hydrolyzed vegetable protein","soybean curd","vegetable protein concentrate","vegetable flour","fermented paste","bean curd sticks","plant-based concentrate","vegetable gum","protein enhancer","plant-based emulsifier","vegetable concentrate","textured isolate","vegetable blend"],
-        "wheat": ["wheat","whole wheat","wheat flour","enriched wheat","cracked wheat","wheat germ","wheat bran","wheat starch","bulgur","durum","semolina","einkorn","spelt","farina","couscous","emmer","bread flour","cake flour","graham","self-rising flour","pastry flour","wheat protein","modified wheat starch","wheat gluten","matzo","wheat","semolina","farro","emmer","spelt","graham","bulgur","matzo meal","modified starch","bran","durum","vital gluten","cracker crumbs","bread base","cake stabilizer","pasta mix","grain concentrate","flour blend","self-rising mix","emulsifier powder","noodle base","starch complex","enriched grain","grain powder","baked product binder","pastry crust blend"],
-        "sesame": ["sesame","sesame seed","tahini","sesame oil","sesame paste","sesame flour","sesame salt","roasted sesame","black sesame","white sesame","toasted sesame","sesame cracker","sesame bun","sesame stick","sesame brittle","sesame extract","sesame powder","sesame snack","ground sesame","sesame seasoning","sesame garnish","sesame candy","sesame dressing","sesame bar","sesame sauce","tahini","benne seeds","roasted seeds","toasted oil","halvah","sesamol","sesamolin","seed flour","seed paste","seed oil","crushed seeds","seed butter","seed meal","black seed","white seed","sesame extract","seed mix","seed garnish","seed seasoning","seed brittle","seed dressing","seed crumble","seed topping","seed concentrate","seed glaze"],
-        "treeNut": ["almond","walnut","cashew","hazelnut","pistachio","pecan","brazil nut","macadamia","pine nut","chestnut","nut butter","nut oil","nut paste","nut flour","nut meal","crushed nuts","toasted nuts","candied nuts","nut milk","nut extract","nut brittle","nut protein","nut spread","chopped nuts","nut mix","nut bar","tree nuts","tree nut","almond extract","nut meal","crushed nut","candied nut","nut oil","nut butter","nut paste","chopped nut","praline","marzipan","frangipane","nut brittle","nutty essence","nut milk","nut syrup","nut concentrate","roasted nut","toasted nut","spiced nut","nutty mix","granola clusters","nut oil residue","processed kernel","nut protein isolate","flavored kernel","nut essence"],
-        "corn": ["corn","corn syrup","cornstarch","cornmeal","corn flour","popcorn","corn oil","corn chips","corn flakes","polenta","hominy","corn tortilla","cornbread","high fructose corn syrup","corn grits","corn puffs","sweet corn","corn extract","corn gluten","corn starch","corn niblets","baby corn","corn kernels","corn cereal","corn snack","maize","masa harina","high fructose syrup","modified starch","corn grits","corn bran","corn sugar","corn hydrolysate","corn syrup solids","vegetable starch","vegetable fiber","cornmeal mix","hominy grits","polenta flour","puffed grain","corn flake crumbs","sweet corn extract","corn germ","corn protein concentrate","vegetable gum","corn oil blend","starch derivative","grain emulsifier","vegetable syrup","grain binder"],
-        "mustard": ["mustard","mustard seed","yellow mustard","dijon mustard","spicy mustard","whole-grain mustard","mustard oil","mustard sauce","mustard powder","mustard dressing","mustard paste","hot mustard","mild mustard","honey mustard","brown mustard","mustard extract","mustard seasoning","mustard greens","dry mustard","stone-ground mustard","English mustard","sweet mustard","garlic mustard","French mustard","German mustard","wasabi mustard","brassica seed","yellow condiment","spicy dressing","seed extract","mustard oil","whole-grain blend","dijon-style sauce","vinegar spice","stone-ground blend","prepared mustard","mustard greens","seed powder","emulsified spice","grainy sauce","vinegar blend","sharp flavoring","pungent dressing","seed concentrate","mustard paste","zesty dressing","seed derivative","mustard seasoning","bold sauce","grain-based spice","brassica garnish"],
-        "celery": ["celery root","celery seed","celery salt","celery extract","celery powder","celery stalk","celeriac","raw celery","cooked celery","celery juice","celery leaves","celery sticks","dried celery","celery oil","celery seasoning","chopped celery","celery garnish","celery snack","organic celery","celery bits","celery soup","celery flakes","celery fiber","celery puree","diced celery","celery","celeriac","raw stalks","cooked root","dried stalk","celery seed extract","celery oil","celery salt","vegetable broth","stock concentrate","root powder","celery leaf","diced stalks","vegetable seasoning","green stalk powder","flavoring concentrate","vegetable garnish","root fiber","stalk puree","raw vegetable","cooked greens","leaf garnish","dried root","stalk essence","root extract","aromatic greens"],
-        "lupin": ["lupin flour","lupin seeds","lupin protein","lupin isolate","lupin bread","lupin pasta","lupin snack","sweet lupin","bitter lupin","lupin flakes","lupin sprouts","lupin oil","lupin meal","roasted lupin","organic lupin","lupin biscuit","lupin muffin","lupin cake","lupin cracker","lupin extract","lupin-based food","lupin powder","lupin gluten","lupin fiber","lupin cereal","lupin","legume flour","sweet legume","bitter legume","legume sprouts","legume extract","bean derivative","bean paste","bean meal","bean isolate","protein concentrate","lupine starch","lupine flakes","legume protein","bean oil","bean fiber","bean-based snack","bean cake","bean biscuit","bean powder","protein isolate","bean concentrate","bean crisp","bean bar","legume chips","bean seasoning"],
-        "sulfite": ["sulfite preservative","sulfur dioxide","potassium metabisulfite","sodium metabisulfite","sodium bisulfite","sulfurous acid","sulfite solution","dried fruits with sulfites","sulfite wine","sulfite-treated vegetables","sulfite spray","sulfite additive","canned food with sulfites","sulfite seasoning","sulfite powder","sulfite crystals","sulfite agent","sulfite rinse","sulfite label","sulfite declaration","sulfite allergy","sulfite warning","sulfite preservative code","sulfite regulation","sulfite control","sulfite","sulfur dioxide","potassium metabisulfite","sodium bisulfite","preservative code","sulfite label","acidic solution","wine additive","food-grade sulfur","dried fruit preservative","vegetable rinse","preservative compound","preservative extract","antioxidant agent","sulfur compound","metabisulfite blend","preservative mix","sulfurous acid","preservative solution","preservative treatment","chemical antioxidant","ingredient additive","chemical stabilizer","preservative binder","antioxidant blend","preservative concentrate"],
-        "peach": ["peach","fresh peach","peach syrup","peach extract","peach juice","peach preserve","peach puree","peach flavor","peach skin","peach cobbler","peach pie","dried peach","peach concentrate","peach nectar","peach chunks","peach salad","peach smoothie","canned peach","peach sorbet","organic peach","peach tart","peach jam","peach topping","peach dessert","peach compote"],
-        "plum": ["plum","fresh plum","plum extract","plum juice","plum puree","plum flavor","dried plum","plum concentrate","canned plum","organic plum","plum sauce","plum wine","plum jam","plum chutney","plum dessert","plum tart","plum pie","plum compote","plum glaze","plum preserves","plum chunks","plum pudding","plum syrup","stewed plum","pickled plum"],
-        "apricot": ["apricot","fresh apricot","dried apricot","apricot juice","apricot extract","apricot puree","apricot nectar","apricot jam","apricot preserves","canned apricot","apricot compote","apricot dessert","apricot tart","apricot pie","apricot flavor","apricot glaze","apricot concentrate","organic apricot","stewed apricot","apricot slices","apricot chunks","apricot topping","apricot smoothie","apricot syrup","apricot sauce"],
-        "tomato": ["tomato","fresh tomato","dried tomato","sun-dried tomato","tomato juice","tomato puree","tomato paste","tomato sauce","tomato concentrate","tomato ketchup","canned tomato","tomato chunks","organic tomato","cherry tomato","heirloom tomato","roma tomato","tomato salsa","tomato broth","tomato soup","tomato salad","tomato relish","tomato glaze","tomato extract","tomato topping","tomato seasoning","tomato powder"],
-        "cherry": ["cherry","fresh cherry","dried cherry","cherry juice","cherry extract","cherry puree","cherry compote","cherry jam","cherry preserves","canned cherry","organic cherry","cherry tart","cherry pie","cherry cobbler","cherry topping","maraschino cherry","cherry sauce","cherry syrup","cherry chunks","cherry flavor","black cherry","sour cherry","cherry dessert","cherry glaze","cherry powder"],
-        "kiwi": ["kiwi","kiwifruit","kiwi slices","kiwi chunks","kiwi puree","kiwi juice","fresh kiwi","organic kiwi","dried kiwi","kiwi extract","kiwi concentrate","kiwi tart","kiwi salad","kiwi dessert","kiwi topping","kiwi jam","kiwi preserves","kiwi smoothie","kiwi flavor","kiwi compote","kiwi sorbet","kiwi glaze","kiwi chunks in syrup","canned kiwi","sweetened kiwi"],
-        "banana": ["banana","fresh banana","ripe banana","overripe banana","banana chunks","banana slices","banana puree","banana smoothie","banana juice","banana extract","banana powder","dried banana","banana chips","banana bread","banana cake","banana dessert","banana topping","banana flavor","banana syrup","banana concentrate","banana sorbet","banana milkshake","banana preserves","banana jam","banana custard"]
+        // --- Shellfish (unchanged + appended) ---
+        "shellfish": [
+            "shrimp","crab","lobster","prawn","crayfish","mussels","clams","oyster","scallops","cockles","barnacles","langoustine","mantis shrimp","sea urchin","abalone","shellfish extract","shellfish broth","dried shellfish","shellfish powder","seafood mix","cuttlefish","whelk","scampi","shellfish oil","shellfish sauce","shellfish paste","shellfish","crustacean","shellfish protein","shellfish-derived broth","shellfish concentrate","shellfish essence","dried crustaceans","crustacean powder","shellfish collagen","fermented shellfish","shellfish meal","shellfish additive","shellfish peptide","shellfish extract powder","preserved shellfish","crushed shellfish shells","shellfish-based sauce","shellfish seasonings","processed shellfish","imitation lobster","shellfish-derived gelatin","shellfish hydrolysate","crab meat extract","shrimp shell powder","crustacean protein","dehydrated shrimp","crustacean","langoustine","prawn tails","crayfish extract","scallop powder","clam broth","oyster sauce","mussels","barnacle shells","cuttlefish ink","sea urchin roe","abalone slices","cockle meat","shrimp powder","seafood stock","marine protein","dried crustacean","shell broth","mollusk extract","crustacean hydrolysate","langoustine bisque","oyster concentrate","seafood peptide","shrimp collagen","seafood flavor enhancer",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "贝类 (Chinese for shellfish)",
+            "虾 (Chinese for shrimp)",
+            // Japanese
+            "貝類 (Japanese for shellfish)",
+            // Dutch
+            "Schaaldieren (Dutch)",
+            // German
+            "Schalentiere (German)",
+            // Spanish
+            "Mariscos (Spanish)",
+            // Additional chemical references
+            "Tropomyosin (shellfish protein)",
+            "E631 (disodium inosinate - can be shellfish-derived)"
+        ],
+        // --- Meat ---
+        "meat": [
+            "beef","pork","chicken","turkey","lamb","veal","bacon","sausage","ham","prosciutto","salami","jerky","duck","goat","rabbit","venison","bison","meatballs","meatloaf","ground meat","processed meat","cold cuts","deli meat","steak","roast","meat extract","meat flavoring","meat seasoning","meat paste","ground meat concentrate","fermented meat","processed meat product","meat collagen","meat-based broth","dried meat flakes","smoked meat","meat hydrolysate","meat-derived protein","meat essence","cooked meat powder","meat glaze","cured meat","meat additive","meat peptide","meat granules","mechanically separated meat","meat emulsifier","meat gelatin","meat flavor enhancer","dehydrated meat","bacon bits","cold cuts","jerky","sausage casing","gelatin","broth concentrate","lard","tallow","meat broth","animal protein","processed fat","meat extract","marrow concentrate","beef collagen","pork hydrolysate","meat glaze","roast drippings","bone broth","poultry gelatin","steak essence","meat seasoning","ham base","lamb powder","turkey stock","meat paste",
+
+            // ADDED: foreign words & chemical synonyms
+            // Chinese
+            "肉类 (Chinese)",
+            "牛肉 (Chinese for beef)",
+            // Japanese
+            "肉 (Japanese for meat)",
+            "牛肉 (Japanese for beef)",
+            // Dutch
+            "Vlees (Dutch)",
+            // German
+            "Fleisch (German)",
+            // Spanish
+            "Carne (Spanish)",
+            // Additional chemical references
+            "E250 (sodium nitrite - used in processed meats)",
+            "E252 (potassium nitrate - used in processed meats)"
+        ],
+        // --- Soy ---
+        "soy": [
+            "soy","soybean","soy lecithin","soy protein","tofu","edamame","soy milk","tempeh","soy sauce","tamari","miso","natto","soy flour","textured vegetable protein","hydrolyzed soy protein","soy nuts","fermented soy","soy paste","soy meal","soy concentrate","soy isolate","soya","bean curd","soy oil","soy extract","soy","soy emulsion","soy lecithin extract","fermented soybeans","soy hydrolysate","soy isoflavones","soy protein isolate","soy protein concentrate","toasted soybeans","soy peptides","soy-based emulsifier","soy-derived protein","soy gum","soy milk powder","soybean oil residue","soy flour blend","soy sauce powder","soy protein hydrolysate","soy-based broth","soy protein fragments","soy milk solids","fermented soy powder","defatted soy flour","soy extract concentrate","soy-based additive","edamame","tofu","textured protein","hydrolyzed protein","natto","tempeh","soybean derivative","miso paste","tamari sauce","lecithin emulsifier","vegetable oil blend","plant protein isolate","hydrolyzed vegetable protein","soybean curd","vegetable protein concentrate","vegetable flour","fermented paste","bean curd sticks","plant-based concentrate","vegetable gum","protein enhancer","plant-based emulsifier","vegetable concentrate","textured isolate","vegetable blend",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "大豆 (Chinese)",
+            "豆浆 (Chinese for soy milk)",
+            // Japanese
+            "大豆 (Japanese)",
+            "醤油 (Japanese for soy sauce)",
+            // Dutch
+            "Soja (Dutch)",
+            // German
+            "Soja (German)",
+            // Spanish
+            "Soya (Spanish)",
+            // Additional chemical references
+            "E322 (soy lecithin code)",
+            "Phytoestrogens"
+        ],
+        // --- Wheat ---
+        "wheat": [
+            "wheat","whole wheat","wheat flour","enriched wheat","cracked wheat","wheat germ","wheat bran","wheat starch","bulgur","durum","semolina","einkorn","spelt","farina","couscous","emmer","bread flour","cake flour","graham","self-rising flour","pastry flour","wheat protein","modified wheat starch","wheat gluten","matzo","wheat","semolina","farro","emmer","spelt","graham","bulgur","matzo meal","modified starch","bran","durum","vital gluten","cracker crumbs","bread base","cake stabilizer","pasta mix","grain concentrate","flour blend","self-rising mix","emulsifier powder","noodle base","starch complex","enriched grain","grain powder","baked product binder","pastry crust blend",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "小麦 (Chinese)",
+            // Japanese
+            "小麦 (Japanese)",
+            // Dutch
+            "Tarwe (Dutch)",
+            // German
+            "Weizen (German)",
+            // Spanish
+            "Trigo (Spanish)",
+            // Additional chemical references
+            "E300 (ascorbic acid, sometimes wheat-derived)",
+            "Wheat peptide"
+        ],
+        // --- Sesame ---
+        "sesame": [
+            "sesame","sesame seed","tahini","sesame oil","sesame paste","sesame flour","sesame salt","roasted sesame","black sesame","white sesame","toasted sesame","sesame cracker","sesame bun","sesame stick","sesame brittle","sesame extract","sesame powder","sesame snack","ground sesame","sesame seasoning","sesame garnish","sesame candy","sesame dressing","sesame bar","sesame sauce","tahini","benne seeds","roasted seeds","toasted oil","halvah","sesamol","sesamolin","seed flour","seed paste","seed oil","crushed seeds","seed butter","seed meal","black seed","white seed","sesame extract","seed mix","seed garnish","seed seasoning","seed brittle","seed dressing","seed crumble","seed topping","seed concentrate","seed glaze",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "芝麻 (Chinese)",
+            "芝麻酱 (Chinese for sesame paste)",
+            // Japanese
+            "ゴマ (Japanese)",
+            // Dutch
+            "Sesam (Dutch)",
+            // German
+            "Sesam (German)",
+            // Spanish
+            "Sésamo (Spanish)",
+            // Additional chemical references
+            "E909 (polydimethylsiloxane, occasionally from seeds/oils)",
+            "Sesamin"
+        ],
+        // --- treeNut ---
+        "treeNut": [
+            "almond","walnut","cashew","hazelnut","pistachio","pecan","brazil nut","macadamia","pine nut","chestnut","nut butter","nut oil","nut paste","nut flour","nut meal","crushed nuts","toasted nuts","candied nuts","nut milk","nut extract","nut brittle","nut protein","nut spread","chopped nuts","nut mix","nut bar","tree nuts","tree nut","almond extract","nut meal","crushed nut","candied nut","nut oil","nut butter","nut paste","chopped nut","praline","marzipan","frangipane","nut brittle","nutty essence","nut milk","nut syrup","nut concentrate","roasted nut","toasted nut","spiced nut","nutty mix","granola clusters","nut oil residue","processed kernel","nut protein isolate","flavored kernel","nut essence",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "坚果 (Chinese for nuts)",
+            "杏仁 (Chinese for almond)",
+            // Japanese
+            "ナッツ (Japanese for nuts)",
+            // Dutch
+            "Noten (Dutch)",
+            // German
+            "Nüsse (German)",
+            // Spanish
+            "Nueces (Spanish for nuts)",
+            // Additional chemical references
+            "E322 (nut-based lecithin, if from tree nuts)",
+            "Juglans regia (walnut scientific name)"
+        ],
+        // --- Corn ---
+        "corn": [
+            "corn","corn syrup","cornstarch","cornmeal","corn flour","popcorn","corn oil","corn chips","corn flakes","polenta","hominy","corn tortilla","cornbread","high fructose corn syrup","corn grits","corn puffs","sweet corn","corn extract","corn gluten","corn starch","corn niblets","baby corn","corn kernels","corn cereal","corn snack","maize","masa harina","high fructose syrup","modified starch","corn grits","corn bran","corn sugar","corn hydrolysate","corn syrup solids","vegetable starch","vegetable fiber","cornmeal mix","hominy grits","polenta flour","puffed grain","corn flake crumbs","sweet corn extract","corn germ","corn protein concentrate","vegetable gum","corn oil blend","starch derivative","grain emulsifier","vegetable syrup","grain binder",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "玉米 (Chinese)",
+            // Japanese
+            "トウモロコシ (Japanese)",
+            // Dutch
+            "Maïs (Dutch)",
+            // German
+            "Mais (German)",
+            // Spanish
+            "Maíz (Spanish)",
+            // Additional chemical references
+            "E1404 (oxidized starch from corn)",
+            "Maltodextrin (often corn-based)"
+        ],
+        // --- Mustard ---
+        "mustard": [
+            "mustard","mustard seed","yellow mustard","dijon mustard","spicy mustard","whole-grain mustard","mustard oil","mustard sauce","mustard powder","mustard dressing","mustard paste","hot mustard","mild mustard","honey mustard","brown mustard","mustard extract","mustard seasoning","mustard greens","dry mustard","stone-ground mustard","English mustard","sweet mustard","garlic mustard","French mustard","German mustard","wasabi mustard","brassica seed","yellow condiment","spicy dressing","seed extract","mustard oil","whole-grain blend","dijon-style sauce","vinegar spice","stone-ground blend","prepared mustard","mustard greens","seed powder","emulsified spice","grainy sauce","vinegar blend","sharp flavoring","pungent dressing","seed concentrate","mustard paste","zesty dressing","seed derivative","mustard seasoning","bold sauce","grain-based spice","brassica garnish",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "芥末 (Chinese for mustard)",
+            // Japanese
+            "マスタード (Japanese)",
+            // Dutch
+            "Mosterd (Dutch)",
+            // German
+            "Senf (German)",
+            // Spanish
+            "Mostaza (Spanish)",
+            // Additional chemical references
+            "Allyl isothiocyanate (mustard pungent compound)",
+            "E415 (xanthan gum stabilizer in mustard)"
+        ],
+        // --- Celery ---
+        "celery": [
+            "celery root","celery seed","celery salt","celery extract","celery powder","celery stalk","celeriac","raw celery","cooked celery","celery juice","celery leaves","celery sticks","dried celery","celery oil","celery seasoning","chopped celery","celery garnish","celery snack","organic celery","celery bits","celery soup","celery flakes","celery fiber","celery puree","diced celery","celery","celeriac","raw stalks","cooked root","dried stalk","celery seed extract","celery oil","celery salt","vegetable broth","stock concentrate","root powder","celery leaf","diced stalks","vegetable seasoning","green stalk powder","flavoring concentrate","vegetable garnish","root fiber","stalk puree","raw vegetable","cooked greens","leaf garnish","dried root","stalk essence","root extract","aromatic greens",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "芹菜 (Chinese)",
+            // Japanese
+            "セロリ (Japanese)",
+            // Dutch
+            "Selderij (Dutch)",
+            // German
+            "Sellerie (German)",
+            // Spanish
+            "Apio (Spanish)",
+            // Additional chemical references
+            "E621 (MSG from celery extracts), potentially",
+            "Apiin (celery flavonoid)"
+        ],
+        // --- Lupin ---
+        "lupin": [
+            "lupin flour","lupin seeds","lupin protein","lupin isolate","lupin bread","lupin pasta","lupin snack","sweet lupin","bitter lupin","lupin flakes","lupin sprouts","lupin oil","lupin meal","roasted lupin","organic lupin","lupin biscuit","lupin muffin","lupin cake","lupin cracker","lupin extract","lupin-based food","lupin powder","lupin gluten","lupin fiber","lupin cereal","lupin","legume flour","sweet legume","bitter legume","legume sprouts","legume extract","bean derivative","bean paste","bean meal","bean isolate","protein concentrate","lupine starch","lupine flakes","legume protein","bean oil","bean fiber","bean-based snack","bean cake","bean biscuit","bean powder","protein isolate","bean concentrate","bean crisp","bean bar","legume chips","bean seasoning",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "羽扇豆 (Chinese for lupin)",
+            // Japanese
+            "ルピナス (Japanese transliteration)",
+            // Dutch
+            "Lupine (Dutch)",
+            // German
+            "Lupine (German)",
+            // Spanish
+            "Altramuz (Spanish for lupin)",
+            // Additional chemical references
+            "Lupanine (alkaloid in lupin)",
+            "E440 (pectin, sometimes from legumes, though rarely lupin-based)"
+        ],
+        // --- Sulfite ---
+        "sulfite": [
+            "sulfite preservative","sulfur dioxide","potassium metabisulfite","sodium metabisulfite","sodium bisulfite","sulfurous acid","sulfite solution","dried fruits with sulfites","sulfite wine","sulfite-treated vegetables","sulfite spray","sulfite additive","canned food with sulfites","sulfite seasoning","sulfite powder","sulfite crystals","sulfite agent","sulfite rinse","sulfite label","sulfite declaration","sulfite allergy","sulfite warning","sulfite preservative code","sulfite regulation","sulfite control","sulfite","sulfur dioxide","potassium metabisulfite","sodium bisulfite","preservative code","sulfite label","acidic solution","wine additive","food-grade sulfur","dried fruit preservative","vegetable rinse","preservative compound","preservative extract","antioxidant agent","sulfur compound","metabisulfite blend","preservative mix","sulfurous acid","preservative solution","preservative treatment","chemical antioxidant","ingredient additive","chemical stabilizer","preservative binder","antioxidant blend","preservative concentrate",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "亚硫酸盐 (Chinese)",
+            // Japanese
+            "亜硫酸塩 (Japanese)",
+            // Dutch
+            "Sulfiet (Dutch)",
+            // German
+            "Sulfite (German)",
+            // Spanish
+            "Sulfito (Spanish)",
+            // Additional chemical references
+            "E220 (sulfur dioxide)",
+            "E224 (potassium metabisulfite)"
+        ],
+        // --- Peach ---
+        "peach": [
+            "peach","fresh peach","peach syrup","peach extract","peach juice","peach preserve","peach puree","peach flavor","peach skin","peach cobbler","peach pie","dried peach","peach concentrate","peach nectar","peach chunks","peach salad","peach smoothie","canned peach","peach sorbet","organic peach","peach tart","peach jam","peach topping","peach dessert","peach compote",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "桃子 (Chinese)",
+            // Japanese
+            "もも (Japanese)",
+            // Dutch
+            "Perzik (Dutch)",
+            // German
+            "Pfirsich (German)",
+            // Spanish
+            "Durazno (Spanish)",
+            // Additional chemical references
+            "Prunus persica (scientific name)",
+            "E296 (malic acid - found in peaches)"
+        ],
+        // --- Plum ---
+        "plum": [
+            "plum","fresh plum","plum extract","plum juice","plum puree","plum flavor","dried plum","plum concentrate","canned plum","organic plum","plum sauce","plum wine","plum jam","plum chutney","plum dessert","plum tart","plum pie","plum compote","plum glaze","plum preserves","plum chunks","plum pudding","plum syrup","stewed plum","pickled plum",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "李子 (Chinese)",
+            // Japanese
+            "プラム (Japanese)",
+            // Dutch
+            "Pruim (Dutch)",
+            // German
+            "Pflaume (German)",
+            // Spanish
+            "Ciruela (Spanish)",
+            // Additional chemical references
+            "Prunus domestica (plum scientific name)",
+            "Sorbitol (natural sugar in plums)"
+        ],
+        // --- Apricot ---
+        "apricot": [
+            "apricot","fresh apricot","dried apricot","apricot juice","apricot extract","apricot puree","apricot nectar","apricot jam","apricot preserves","canned apricot","apricot compote","apricot dessert","apricot tart","apricot pie","apricot flavor","apricot glaze","apricot concentrate","organic apricot","stewed apricot","apricot slices","apricot chunks","apricot topping","apricot smoothie","apricot syrup","apricot sauce",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "杏子 (Chinese)",
+            // Japanese
+            "アプリコット (Japanese)",
+            // Dutch
+            "Abrikoos (Dutch)",
+            // German
+            "Aprikose (German)",
+            // Spanish
+            "Albaricoque (Spanish)",
+            // Additional chemical references
+            "Prunus armeniaca (apricot scientific name)",
+            "Amygdalin (in apricot kernels)"
+        ],
+        // --- Tomato ---
+        "tomato": [
+            "tomato","fresh tomato","dried tomato","sun-dried tomato","tomato juice","tomato puree","tomato paste","tomato sauce","tomato concentrate","tomato ketchup","canned tomato","tomato chunks","organic tomato","cherry tomato","heirloom tomato","roma tomato","tomato salsa","tomato broth","tomato soup","tomato salad","tomato relish","tomato glaze","tomato extract","tomato topping","tomato seasoning","tomato powder",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "番茄 (Chinese)",
+            // Japanese
+            "トマト (Japanese)",
+            // Dutch
+            "Tomaat (Dutch)",
+            // German
+            "Tomate (German)",
+            // Spanish
+            "Tomate (Spanish)",
+            // Additional chemical references
+            "Solanum lycopersicum (scientific name)",
+            "Lycopene"
+        ],
+        // --- Cherry ---
+        "cherry": [
+            "cherry","fresh cherry","dried cherry","cherry juice","cherry extract","cherry puree","cherry compote","cherry jam","cherry preserves","canned cherry","organic cherry","cherry tart","cherry pie","cherry cobbler","cherry topping","maraschino cherry","cherry sauce","cherry syrup","cherry chunks","cherry flavor","black cherry","sour cherry","cherry dessert","cherry glaze","cherry powder",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "樱桃 (Chinese)",
+            // Japanese
+            "さくらんぼ (Japanese)",
+            // Dutch
+            "Kers (Dutch)",
+            // German
+            "Kirsche (German)",
+            // Spanish
+            "Cereza (Spanish)",
+            // Additional chemical references
+            "Prunus avium (sweet cherry scientific name)",
+            "Anthocyanin"
+        ],
+        // --- Kiwi ---
+        "kiwi": [
+            "kiwi","kiwifruit","kiwi slices","kiwi chunks","kiwi puree","kiwi juice","fresh kiwi","organic kiwi","dried kiwi","kiwi extract","kiwi concentrate","kiwi tart","kiwi salad","kiwi dessert","kiwi topping","kiwi jam","kiwi preserves","kiwi smoothie","kiwi flavor","kiwi compote","kiwi sorbet","kiwi glaze","kiwi chunks in syrup","canned kiwi","sweetened kiwi",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "奇异果 (Chinese)",
+            // Japanese
+            "キウイ (Japanese)",
+            // Dutch
+            "Kiwi (Dutch)",
+            // German
+            "Kiwi (German)",
+            // Spanish
+            "Kiwi (Spanish)",
+            // Additional chemical references
+            "Actinidin (kiwi enzyme)",
+            "E420 (sorbitol, can appear in kiwi-based products)"
+        ],
+        // --- Banana ---
+        "banana": [
+            "banana","fresh banana","ripe banana","overripe banana","banana chunks","banana slices","banana puree","banana smoothie","banana juice","banana extract","banana powder","dried banana","banana chips","banana bread","banana cake","banana dessert","banana topping","banana flavor","banana syrup","banana concentrate","banana sorbet","banana milkshake","banana preserves","banana jam","banana custard",
+
+            // ADDED: foreign synonyms / chemical
+            // Chinese
+            "香蕉 (Chinese)",
+            // Japanese
+            "バナナ (Japanese)",
+            // Dutch
+            "Banaan (Dutch)",
+            // German
+            "Banane (German)",
+            // Spanish
+            "Plátano (Spanish)",
+            // Additional chemical references
+            "Musa acuminata (banana scientific name)",
+            "Isoamyl acetate (banana flavor compound)"
+        ]
     ]
+
     
     @State private var detectedAllergens: [Allergen] = []
     
@@ -158,301 +857,25 @@ struct ContentView: View {
     }
 
     var body: some View {
+        // Instead of applying the style background just behind the bar,
+        // we apply it to a top-level ZStack that encloses everything.
         ZStack {
-            // 20 style list in a switch for the entire app background
-            switch selectedStyleIndex {
-            case 1:
-                Color.purple.ignoresSafeArea()
-            case 2:
-                LinearGradient(
-                    gradient: Gradient(colors: [.blue, .mint]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+            // ADDED CODE: We place the entire NavigationView in a ZStack with the gradient/color behind it
+            styleBackground(forIndex: selectedStyleIndex)
                 .ignoresSafeArea()
-            case 3:
-                Color.gray.ignoresSafeArea()
-            case 4:
-                LinearGradient(
-                    gradient: Gradient(colors: [.red, .pink]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-            case 5:
-                LinearGradient(
-                    gradient: Gradient(colors: [.orange, .yellow]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            case 6:
-                LinearGradient(
-                    gradient: Gradient(colors: [.teal, .green]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-            case 7:
-                LinearGradient(
-                    gradient: Gradient(colors: [.indigo, .blue]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            case 8:
-                LinearGradient(
-                    gradient: Gradient(colors: [.pink, .red]),
-                    startPoint: .topTrailing,
-                    endPoint: .bottomLeading
-                )
-                .ignoresSafeArea()
-            case 9:
-                LinearGradient(
-                    gradient: Gradient(colors: [.brown, .orange]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-            case 10:
-                Color.mint.ignoresSafeArea()
-            case 11:
-                LinearGradient(
-                    gradient: Gradient(colors: [.purple, .blue]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-            case 12:
-                LinearGradient(
-                    gradient: Gradient(colors: [.black, .gray]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            case 13:
-                LinearGradient(
-                    gradient: Gradient(colors: [.green, .yellow]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            case 14:
-                LinearGradient(
-                    gradient: Gradient(colors: [.blue, .black]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-            case 15:
-                Color.cyan.ignoresSafeArea()
-            case 16:
-                LinearGradient(
-                    gradient: Gradient(colors: [.red, .brown]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-            case 17:
-                LinearGradient(
-                    gradient: Gradient(colors: [.orange, .pink, .purple]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            case 18:
-                LinearGradient(
-                    gradient: Gradient(colors: [.yellow, .blue]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-            case 19:
-                LinearGradient(
-                    gradient: Gradient(colors: [.purple, .mint, .pink]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-            case 20:
-                LinearGradient(
-                    gradient: Gradient(colors: [.red, .orange, .yellow, .green, .blue, .purple]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .ignoresSafeArea()
-            default:
-                // Original gradient
-                LinearGradient(
-                    gradient: Gradient(colors: [Color(hex: "#2e2e2e"), Color.black]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-            }
 
             if hasSeenOnboarding {
                 VStack {
                     NavigationView {
                         VStack {
                             if selectedTab == .scan {
-
-                                VStack {
-                                    Text("Scan")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                        .padding(.bottom, 4)
-                                   
-                                    Text("Point and hold at Food Label")
-                                        .font(.subheadline)
-                                        .foregroundColor(.white)
-                                    
-                                    Text("Always double check the product packaging yourself")
-                                        .font(.caption)
-                                        .foregroundColor(.red)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.bottom, 8)
-                   
-                                    // Make the vision window shorter (less tall)
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                                            .background(Color.black.opacity(0.5))
-                                            .cornerRadius(8)
-                                        CameraCaptureView(onTextDetected: handleTextDetection,
-                                                          coordinatorRef: $cameraCoordinator)
-                                            .cornerRadius(8)
-                                    }
-                                    // Reduced from 300 to 200 for more space
-                                    .frame(height: 200)
-                                    .padding()
-                                    
-                                    // Only scan when user presses
-                                    Button(action: {
-                                        cameraCoordinator?.allowManualScan()
-                                    }) {
-                                        Text("Scan Now")
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                            .padding()
-                                            .background(Color.blue)
-                                            .cornerRadius(8)
-                                    }
-                                    .padding(.bottom, 10)
-
-                                    ScrollView {
-                                        VStack(spacing: 10) {
-                                            Text("Allergens Detected By Scan")
-                                                .foregroundColor(.white)
-                                                .font(.headline)
-                                            
-                                            let columns = [
-                                                GridItem(.adaptive(minimum: 120), spacing: 12)
-                                            ]
-                                            
-                                            LazyVGrid(columns: columns, spacing: 12) {
-                                                ForEach(detectedAllergens, id: \.id) { allergen in
-                                                    let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
-                                                    let isMayContain = mayContainMap[allergen.id] ?? false
-                                                    
-                                                    VStack {
-                                                        Image(allergen.id)
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .frame(width: 30, height: 30)
-                                                        Text(allergen.name)
-                                                            .font(.caption)
-                                                            .foregroundColor(.white)
-                                                            .multilineTextAlignment(.center)
-                                                    }
-                                                    .padding()
-                                                    .frame(maxWidth: .infinity)
-                                                    .background(
-                                                        isMayContain ? Color.yellow :
-                                                        (allergenIsEnabled ? Color.red : Color.green)
-                                                    )
-                                                    .cornerRadius(8)
-                                                }
-                                            }
-                                            .padding(.horizontal)
-                                        }
-                                    }
-                                    .padding()
-                                    .onAppear {
-                                        if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
-                                            allergens = decoded
-                                        }
-                                        // We comment out the countdown logic if you prefer
-                                        // that there's no auto scanning. If you still want
-                                        // the countdown for some reason, uncomment below.
-                                        
-                                        // countdown = setCount
-                                        // startCountdown()
-                                    }
-                                }
-
+                                scanView
                             } else if selectedTab == .allergens {
-                                Text("Allergens")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .padding()
-
-                                ScrollView {
-                                    VStack {
-                                        ForEach(allergens) { allergen in
-                                            HStack {
-                                                Image(allergen.id)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 40, height: 40)
-                                                Text(allergen.name)
-                                                    .font(.body)
-                                                    .foregroundColor(.white)
-                                                Spacer()
-                                                Toggle("", isOn: Binding(
-                                                    get: { allergen.isEnabled },
-                                                    set: { newValue in
-                                                        if let index = allergens.firstIndex(where: { $0.id == allergen.id }) {
-                                                            allergens[index].isEnabled = newValue
-                                                            saveAllergens()
-                                                        }
-                                                    }
-                                                ))
-                                                .labelsHidden()
-                                                .toggleStyle(SwitchToggleStyle(tint: .blue))
-                                            }
-                                            .padding()
-                                            .background(Color(.darkGray))
-                                            .cornerRadius(5)
-                                        }
-                                        
-                                        Button(action: {
-                                            if let url = URL(string: "https://forms.gle/Ehd5V2Vcz9wqbQnL6") {
-                                                UIApplication.shared.open(url)
-                                            }
-                                        }) {
-                                            Text("Allergen Not Listed? Request It")
-                                                .font(.body)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(.white)
-                                                .padding()
-                                                .frame(maxWidth: .infinity)
-                                                .background(Color.blue)
-                                                .cornerRadius(8)
-                                        }
-                                        .padding(.top, 16)
-                                        
-                                    }
-                                }
-                                .background(Color.black)
-                                .onAppear {
-                                    if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
-                                        allergens = decoded
-                                    }
-                                }
+                                allergensView
                             } else if selectedTab == .styles {
-                                StylesView(selectedStyleIndex: $selectedStyleIndex)
+                                ScrollView {
+                                    StylesView(selectedStyleIndex: $selectedStyleIndex)
+                                }
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -463,48 +886,327 @@ struct ContentView: View {
                         .ignoresSafeArea(edges: .bottom)
                     }
                     
-                    // Tab bar
-                    HStack {
-                        TabBarItem(
-                            title: "Scan",
-                            iconName: selectedTab == .scan ? "camera.fill" : "camera",
-                            isSelected: selectedTab == .scan
-                        ) {
-                            selectedTab = .scan
-                        }
-                        
-                        Spacer().frame(width: 40)
-                        
-                        TabBarItem(
-                            title: "Allergens",
-                            iconName: selectedTab == .allergens ? "exclamationmark.shield.fill" : "exclamationmark.shield",
-                            isSelected: selectedTab == .allergens
-                        ) {
-                            selectedTab = .allergens
-                        }
-                        
-                        Spacer().frame(width: 40)
-                        
-                        TabBarItem(
-                            title: "Styles",
-                            iconName: selectedTab == .styles ? "paintpalette.fill" : "paintpalette",
-                            isSelected: selectedTab == .styles
-                        ) {
-                            selectedTab = .styles
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 60)
-                    .background(Color(.darkGray).opacity(0.8))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .ignoresSafeArea(edges: .bottom)
+                    customTabBar
                 }
             } else {
                 OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
                     .background(Color(hex: "#94b9ff").ignoresSafeArea())
             }
         }
+    }
+    
+    // A simple function that returns the background color/gradient
+    @ViewBuilder
+    private func styleBackground(forIndex index: Int) -> some View {
+        switch index {
+        case 1:
+            Color.purple
+        case 2:
+            LinearGradient(
+                gradient: Gradient(colors: [.blue, .mint]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case 3:
+            Color.gray
+        case 4:
+            LinearGradient(
+                gradient: Gradient(colors: [.red, .pink]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case 5:
+            LinearGradient(
+                gradient: Gradient(colors: [.orange, .yellow]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case 6:
+            LinearGradient(
+                gradient: Gradient(colors: [.teal, .green]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case 7:
+            LinearGradient(
+                gradient: Gradient(colors: [.indigo, .blue]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case 8:
+            LinearGradient(
+                gradient: Gradient(colors: [.pink, .red]),
+                startPoint: .topTrailing,
+                endPoint: .bottomLeading
+            )
+        case 9:
+            LinearGradient(
+                gradient: Gradient(colors: [.brown, .orange]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case 10:
+            Color.mint
+        case 11:
+            LinearGradient(
+                gradient: Gradient(colors: [.purple, .blue]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case 12:
+            LinearGradient(
+                gradient: Gradient(colors: [.black, .gray]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case 13:
+            LinearGradient(
+                gradient: Gradient(colors: [.green, .yellow]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case 14:
+            LinearGradient(
+                gradient: Gradient(colors: [.blue, .black]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case 15:
+            Color.cyan
+        case 16:
+            LinearGradient(
+                gradient: Gradient(colors: [.red, .brown]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case 17:
+            LinearGradient(
+                gradient: Gradient(colors: [.orange, .pink, .purple]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case 18:
+            LinearGradient(
+                gradient: Gradient(colors: [.yellow, .blue]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case 19:
+            LinearGradient(
+                gradient: Gradient(colors: [.purple, .mint, .pink]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case 20:
+            LinearGradient(
+                gradient: Gradient(colors: [.red, .orange, .yellow, .green, .blue, .purple]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        default:
+            // Original gradient
+            LinearGradient(
+                gradient: Gradient(colors: [Color(hex: "#2e2e2e"), Color.black]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        }
+    }
+    
+    // A helper subview for the "Scan" portion
+    private var scanView: some View {
+        ScrollView{
+        VStack {
+            Text("Scan")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .padding(.bottom, 4)
+            
+            Text("Point and hold at Food Label")
+                .font(.subheadline)
+                .foregroundColor(.white)
+            
+            Text("Always double check the product packaging yourself")
+                .font(.caption)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 8)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                    .background(Color.black.opacity(0.5))
+                    .cornerRadius(8)
+                CameraCaptureView(onTextDetected: handleTextDetection,
+                                  coordinatorRef: $cameraCoordinator)
+                .cornerRadius(8)
+            }
+            .frame(height: 200)
+            .padding()
+            
+            Button(action: {
+                cameraCoordinator?.allowManualScan()
+            }) {
+                Text("Scan Now")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+        }
+            .padding(.bottom, 10)
+            
+            ScrollView {
+                VStack(spacing: 10) {
+                    Text("Allergens Detected By Scan")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                    
+                    let columns = [
+                        GridItem(.flexible()),
+                        GridItem(.flexible()),
+                        GridItem(.flexible())
+                    ]
+                    
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(detectedAllergens, id: \.id) { allergen in
+                            let allergenIsEnabled = allergens.first(where: { $0.id == allergen.id })?.isEnabled ?? false
+                            let isMayContain = mayContainMap[allergen.id] ?? false
+                            
+                            VStack {
+                                Image(allergen.id)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                                Text(allergen.name)
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                isMayContain ? Color.yellow :
+                                (allergenIsEnabled ? Color.red : Color.green)
+                            )
+                            .cornerRadius(8)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+            .padding()
+            .onAppear {
+                if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
+                    allergens = decoded
+                }
+            }
+        }
+    }
+    
+    // A helper subview for the "Allergens" portion
+    private var allergensView: some View {
+        VStack {
+            Text("Allergens")
+                .font(.title)
+                .foregroundColor(.white)
+                .padding()
+            
+            ScrollView {
+                VStack {
+                    ForEach(allergens) { allergen in
+                        HStack {
+                            Image(allergen.id)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                            Text(allergen.name)
+                                .font(.body)
+                                .foregroundColor(.white)
+                            Spacer()
+                            Toggle("", isOn: Binding(
+                                get: { allergen.isEnabled },
+                                set: { newValue in
+                                    if let index = allergens.firstIndex(where: { $0.id == allergen.id }) {
+                                        allergens[index].isEnabled = newValue
+                                        saveAllergens()
+                                    }
+                                }
+                            ))
+                            .labelsHidden()
+                            .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        }
+                        .padding()
+                        .background(Color(.darkGray))
+                        .cornerRadius(5)
+                    }
+                    
+                    Button(action: {
+                        if let url = URL(string: "https://forms.gle/Ehd5V2Vcz9wqbQnL6") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
+                        Text("Allergen Not Listed? Request It")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(8)
+                    }
+                    .padding(.top, 16)
+                    
+                }
+            }
+            .background(Color.black)
+            .onAppear {
+                if let decoded = try? JSONDecoder().decode([Allergen].self, from: selectedAllergensData) {
+                    allergens = decoded
+                }
+            }
+        }
+    }
+    
+    // A helper subview for the custom tab bar
+    private var customTabBar: some View {
+        HStack {
+            TabBarItem(
+                title: "Scan",
+                iconName: selectedTab == .scan ? "camera.fill" : "camera",
+                isSelected: selectedTab == .scan
+            ) {
+                selectedTab = .scan
+            }
+            
+            Spacer().frame(width: 40)
+            
+            TabBarItem(
+                title: "Allergens",
+                iconName: selectedTab == .allergens ? "exclamationmark.shield.fill" : "exclamationmark.shield",
+                isSelected: selectedTab == .allergens
+            ) {
+                selectedTab = .allergens
+            }
+            
+            Spacer().frame(width: 40)
+            
+            TabBarItem(
+                title: "Styles",
+                iconName: selectedTab == .styles ? "paintpalette.fill" : "paintpalette",
+                isSelected: selectedTab == .styles
+            ) {
+                selectedTab = .styles
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
+        .background(Color(.darkGray).opacity(0.8))
+        .cornerRadius(10)
+        .padding(.horizontal)
+        .ignoresSafeArea(edges: .bottom)
     }
     
     private func handleTextDetection(scannedText: String) {
@@ -846,12 +1548,12 @@ struct StylesView: View {
                         Text("Apply")
                             .foregroundColor(.white)
                             .padding(6)
-                            .background(Color.black.opacity(0.4))
+                            .background(Color.gray.opacity(0.4))
                             .cornerRadius(6)
                     }
                 }
                 .padding()
-                .background(Color.black.opacity(0.4))
+                .background(Color.gray.opacity(0.4))
                 .cornerRadius(8)
             }
             
@@ -1132,7 +1834,6 @@ struct OnboardingView: View {
                 .tag(3)
             }
             .tabViewStyle(PageTabViewStyle())
-
             .padding(.top, 20)
 
             if currentPage == 3 {
