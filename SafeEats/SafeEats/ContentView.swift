@@ -866,28 +866,52 @@ struct ContentView: View {
 
             if hasSeenOnboarding {
                 VStack {
-                    NavigationView {
-                        VStack {
-                            if selectedTab == .scan {
-                                scanView
-                            } else if selectedTab == .allergens {
-                                allergensView
-                            } else if selectedTab == .styles {
-                                ScrollView {
-                                    StylesView(selectedStyleIndex: $selectedStyleIndex)
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        NavigationStack {
+                            VStack {
+                                if selectedTab == .scan {
+                                    scanView
+                                } else if selectedTab == .allergens {
+                                    allergensView
+                                } else if selectedTab == .styles {
+                                    ScrollView {
+                                        StylesView(selectedStyleIndex: $selectedStyleIndex)
+                                    }
                                 }
                             }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding()
+                            .background(Color.black.opacity(0.5))
+                            .cornerRadius(10)
+                            .padding()
+                            .ignoresSafeArea(edges: .bottom)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding()
-                        .background(Color.black.opacity(0.5))
-                        .cornerRadius(10)
-                        .padding()
-                        .ignoresSafeArea(edges: .bottom)
+                    } else {
+                        NavigationView {
+                            VStack {
+                                if selectedTab == .scan {
+                                    scanView
+                                } else if selectedTab == .allergens {
+                                    allergensView
+                                } else if selectedTab == .styles {
+                                    ScrollView {
+                                        StylesView(selectedStyleIndex: $selectedStyleIndex)
+                                    }
+                                }
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding()
+                            .background(Color.black.opacity(0.5))
+                            .cornerRadius(10)
+                            .padding()
+                            .ignoresSafeArea(edges: .bottom)
+                        }
+                        .navigationViewStyle(StackNavigationViewStyle())
                     }
                     
                     customTabBar
                 }
+
             } else {
                 OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
                     .background(Color(hex: "#94b9ff").ignoresSafeArea())
