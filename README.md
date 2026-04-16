@@ -11,10 +11,6 @@ Edison Law - Lead Back End Developer
 -  Scanning Delay
 -  Camera Preview
 
-Jacob Trentini - Lead Front End Developer
-- UI
-
-
 # Purpose
 - While there are other food scanning apps SafeEats is the first one which is 100% free. 
 - Others limit you to 3 allergens. 
