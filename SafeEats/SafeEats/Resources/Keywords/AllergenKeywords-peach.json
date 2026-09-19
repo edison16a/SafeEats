@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "peach",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "peach",
+        "fresh peach",
+        "peach syrup",
+        "peach extract",
+        "peach juice",
+        "peach preserve",
+        "peach puree",
+        "peach flavor",
+        "peach skin",
+        "peach cobbler",
+        "peach pie",
+        "dried peach",
+        "peach concentrate",
+        "peach nectar",
+        "peach chunks",
+        "peach salad",
+        "peach smoothie",
+        "canned peach",
+        "peach sorbet",
+        "organic peach",
+        "peach tart",
+        "peach jam",
+        "peach topping",
+        "peach dessert",
+        "peach compote"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "桃子"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "もも"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Perzik"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Pfirsich"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Durazno"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Prunus persica",
+          "kind": "scientificName"
+        },
+        {
+          "text": "E296",
+          "kind": "additiveCode",
+          "note": "malic acid - found in peaches"
+        }
+      ]
+    }
+  ]
+}

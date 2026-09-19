@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "comment": "Background themes offered on the Styles tab. A color is either a SwiftUI system color name (\"purple\") or a hex literal (\"#2e2e2e\"). A single color renders as a flat fill; two or more render as a linear gradient between `startPoint` and `endPoint`.",
+  "defaultThemeID": "charcoal",
+  "themes": [
+    {
+      "id": "charcoal",
+      "name": "Original Gradient",
+      "detail": "Dark gray fading to black for a minimalist look.",
+      "colors": ["#2e2e2e", "#000000"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "royalPurple",
+      "name": "Solid Purple",
+      "detail": "A bold, regal block of deep purple.",
+      "colors": ["purple"]
+    },
+    {
+      "id": "mintyBlue",
+      "name": "Minty Blue",
+      "detail": "A cool gradient running from blue into mint.",
+      "colors": ["blue", "mint"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "plainGray",
+      "name": "Plain Gray",
+      "detail": "Simplicity itself: one neutral gray.",
+      "colors": ["gray"]
+    },
+    {
+      "id": "redToPink",
+      "name": "Red to Pink",
+      "detail": "A vibrant red-to-pink wash from top to bottom.",
+      "colors": ["red", "pink"],
+      "startPoint": "top",
+      "endPoint": "bottom"
+    },
+    {
+      "id": "orangeToYellow",
+      "name": "Orange to Yellow",
+      "detail": "A cheerful gradient from orange across to yellow.",
+      "colors": ["orange", "yellow"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    },
+    {
+      "id": "tealToGreen",
+      "name": "Teal to Green",
+      "detail": "A refreshing gradient from teal into green.",
+      "colors": ["teal", "green"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "indigoToBlue",
+      "name": "Indigo to Blue",
+      "detail": "A calm gradient from indigo across to blue.",
+      "colors": ["indigo", "blue"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    },
+    {
+      "id": "pinkToRed",
+      "name": "Pink to Red",
+      "detail": "Pink sweeping diagonally into red.",
+      "colors": ["pink", "red"],
+      "startPoint": "topTrailing",
+      "endPoint": "bottomLeading"
+    },
+    {
+      "id": "brownToOrange",
+      "name": "Brown to Orange",
+      "detail": "An earthy gradient from brown down to orange.",
+      "colors": ["brown", "orange"],
+      "startPoint": "top",
+      "endPoint": "bottom"
+    },
+    {
+      "id": "solidMint",
+      "name": "Mint",
+      "detail": "A soft, flat mint fill.",
+      "colors": ["mint"]
+    },
+    {
+      "id": "purpleToBlue",
+      "name": "Purple to Blue",
+      "detail": "Purple sliding diagonally into blue.",
+      "colors": ["purple", "blue"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "blackToGray",
+      "name": "Black to Gray",
+      "detail": "A monochrome sweep from black across to gray.",
+      "colors": ["black", "gray"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    },
+    {
+      "id": "greenToYellow",
+      "name": "Green to Yellow",
+      "detail": "A bright gradient from green across to yellow.",
+      "colors": ["green", "yellow"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    },
+    {
+      "id": "blueToBlack",
+      "name": "Blue to Black",
+      "detail": "A moody gradient from blue into black.",
+      "colors": ["blue", "black"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "solidCyan",
+      "name": "Cyan",
+      "detail": "A bright, flat cyan fill.",
+      "colors": ["cyan"]
+    },
+    {
+      "id": "redToBrown",
+      "name": "Red to Brown",
+      "detail": "A warm gradient from red down into brown.",
+      "colors": ["red", "brown"],
+      "startPoint": "top",
+      "endPoint": "bottom"
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset",
+      "detail": "Orange, pink and purple from left to right.",
+      "colors": ["orange", "pink", "purple"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    },
+    {
+      "id": "yellowToBlue",
+      "name": "Yellow to Blue",
+      "detail": "Opposing colors stacked top to bottom.",
+      "colors": ["yellow", "blue"],
+      "startPoint": "top",
+      "endPoint": "bottom"
+    },
+    {
+      "id": "pastelTriad",
+      "name": "Purple, Mint & Pink",
+      "detail": "A playful three-color diagonal gradient.",
+      "colors": ["purple", "mint", "pink"],
+      "startPoint": "topLeading",
+      "endPoint": "bottomTrailing"
+    },
+    {
+      "id": "rainbow",
+      "name": "Rainbow",
+      "detail": "Red, orange, yellow, green, blue and purple.",
+      "colors": ["red", "orange", "yellow", "green", "blue", "purple"],
+      "startPoint": "leading",
+      "endPoint": "trailing"
+    }
+  ]
+}

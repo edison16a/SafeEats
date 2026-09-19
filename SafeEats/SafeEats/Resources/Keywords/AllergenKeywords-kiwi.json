@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "kiwi",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "kiwi",
+        "kiwifruit",
+        "kiwi slices",
+        "kiwi chunks",
+        "kiwi puree",
+        "kiwi juice",
+        "fresh kiwi",
+        "organic kiwi",
+        "dried kiwi",
+        "kiwi extract",
+        "kiwi concentrate",
+        "kiwi tart",
+        "kiwi salad",
+        "kiwi dessert",
+        "kiwi topping",
+        "kiwi jam",
+        "kiwi preserves",
+        "kiwi smoothie",
+        "kiwi flavor",
+        "kiwi compote",
+        "kiwi sorbet",
+        "kiwi glaze",
+        "kiwi chunks in syrup",
+        "canned kiwi",
+        "sweetened kiwi"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "奇异果"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "キウイ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Kiwi"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Kiwi"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Kiwi"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Actinidin",
+          "kind": "compound",
+          "note": "kiwi enzyme"
+        },
+        {
+          "text": "E420",
+          "kind": "additiveCode",
+          "note": "sorbitol, can appear in kiwi-based products"
+        }
+      ]
+    }
+  ]
+}

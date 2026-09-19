@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "common",
+      "title": "Common Allergens",
+      "subtitle": "The allergens most food-safety regulators require to be declared."
+    },
+    {
+      "id": "regulated",
+      "title": "Also Regulated",
+      "subtitle": "Declarable in the EU, UK and several other regions."
+    },
+    {
+      "id": "produce",
+      "title": "Fruit & Produce",
+      "subtitle": "Common triggers for oral allergy syndrome."
+    },
+    {
+      "id": "dietary",
+      "title": "Dietary & Other",
+      "subtitle": "Ingredients people avoid for dietary or sensitivity reasons."
+    }
+  ],
+  "allergens": [
+    {
+      "id": "peanut",
+      "name": "Peanut",
+      "categoryID": "common",
+      "iconAssetName": "peanut",
+      "keywordResourceName": "AllergenKeywords-peanut"
+    },
+    {
+      "id": "dairy",
+      "name": "Dairy",
+      "categoryID": "common",
+      "iconAssetName": "dairy",
+      "keywordResourceName": "AllergenKeywords-dairy"
+    },
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "categoryID": "common",
+      "iconAssetName": "gluten",
+      "keywordResourceName": "AllergenKeywords-gluten"
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "categoryID": "common",
+      "iconAssetName": "egg",
+      "keywordResourceName": "AllergenKeywords-egg"
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "categoryID": "common",
+      "iconAssetName": "fish",
+      "keywordResourceName": "AllergenKeywords-fish"
+    },
+    {
+      "id": "shellfish",
+      "name": "Shellfish",
+      "categoryID": "common",
+      "iconAssetName": "shellfish",
+      "keywordResourceName": "AllergenKeywords-shellfish"
+    },
+    {
+      "id": "meat",
+      "name": "Meat",
+      "categoryID": "dietary",
+      "iconAssetName": "meat",
+      "keywordResourceName": "AllergenKeywords-meat"
+    },
+    {
+      "id": "soy",
+      "name": "Soy",
+      "categoryID": "common",
+      "iconAssetName": "soy",
+      "keywordResourceName": "AllergenKeywords-soy"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "categoryID": "common",
+      "iconAssetName": "wheat",
+      "keywordResourceName": "AllergenKeywords-wheat"
+    },
+    {
+      "id": "sesame",
+      "name": "Sesame",
+      "categoryID": "common",
+      "iconAssetName": "sesame",
+      "keywordResourceName": "AllergenKeywords-sesame"
+    },
+    {
+      "id": "treeNut",
+      "name": "Tree Nut",
+      "categoryID": "common",
+      "iconAssetName": "treeNut",
+      "keywordResourceName": "AllergenKeywords-treeNut"
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "categoryID": "dietary",
+      "iconAssetName": "corn",
+      "keywordResourceName": "AllergenKeywords-corn"
+    },
+    {
+      "id": "mustard",
+      "name": "Mustard",
+      "categoryID": "regulated",
+      "iconAssetName": "mustard",
+      "keywordResourceName": "AllergenKeywords-mustard"
+    },
+    {
+      "id": "celery",
+      "name": "Celery",
+      "categoryID": "regulated",
+      "iconAssetName": "celery",
+      "keywordResourceName": "AllergenKeywords-celery"
+    },
+    {
+      "id": "lupin",
+      "name": "Lupin",
+      "categoryID": "regulated",
+      "iconAssetName": "lupin",
+      "keywordResourceName": "AllergenKeywords-lupin"
+    },
+    {
+      "id": "sulfite",
+      "name": "Sulfite",
+      "categoryID": "regulated",
+      "iconAssetName": "sulfite",
+      "keywordResourceName": "AllergenKeywords-sulfite"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "categoryID": "produce",
+      "iconAssetName": "peach",
+      "keywordResourceName": "AllergenKeywords-peach"
+    },
+    {
+      "id": "plum",
+      "name": "Plum",
+      "categoryID": "produce",
+      "iconAssetName": "plum",
+      "keywordResourceName": "AllergenKeywords-plum"
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "categoryID": "produce",
+      "iconAssetName": "apricot",
+      "keywordResourceName": "AllergenKeywords-apricot"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "categoryID": "produce",
+      "iconAssetName": "tomato",
+      "keywordResourceName": "AllergenKeywords-tomato"
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "categoryID": "produce",
+      "iconAssetName": "cherry",
+      "keywordResourceName": "AllergenKeywords-cherry"
+    },
+    {
+      "id": "kiwi",
+      "name": "Kiwi",
+      "categoryID": "produce",
+      "iconAssetName": "kiwi",
+      "keywordResourceName": "AllergenKeywords-kiwi"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "categoryID": "produce",
+      "iconAssetName": "banana",
+      "keywordResourceName": "AllergenKeywords-banana"
+    }
+  ]
+}

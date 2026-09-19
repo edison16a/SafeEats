@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "egg",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "egg",
+        "albumin",
+        "egg white",
+        "egg yolk",
+        "egg powder",
+        "meringue",
+        "egg wash",
+        "dried egg",
+        "powdered egg",
+        "lysozyme",
+        "globulin",
+        "ovalbumin",
+        "ovomucoid",
+        "lecithin",
+        "egg solids",
+        "whole egg",
+        "pasteurized egg",
+        "egg product",
+        "liquid egg",
+        "freeze-dried egg",
+        "scrambled egg",
+        "hard-boiled egg",
+        "omelette",
+        "deviled egg",
+        "egg substitute",
+        "egg-based",
+        "egg replacer",
+        "egg glaze",
+        "freeze-dried albumin",
+        "whole egg powder",
+        "liquid egg whites",
+        "ovoglobulin",
+        "lyophilized egg",
+        "dried albumin",
+        "egg yolk extract",
+        "powdered yolk",
+        "egg fortifier",
+        "pasteurized yolk",
+        "egg binder",
+        "fermented egg protein",
+        "egg-derived lecithin",
+        "egg-based emulsifier",
+        "egg hydrolysate",
+        "egg residue",
+        "whole egg solids",
+        "liquid albumen",
+        "egg hydrolyzate",
+        "egg encapsulate",
+        "heat-treated egg",
+        "egg-origin additive",
+        "meringue powder",
+        "egg lecithin",
+        "liquid whites",
+        "lyophilized albumen",
+        "dried whites",
+        "omelet base",
+        "freeze-dried yolk",
+        "emulsifier blend",
+        "protein fortifier",
+        "liquid protein",
+        "egg powder substitute",
+        "egg-derived binder",
+        "stabilizer blend",
+        "egg solid concentrate",
+        "glazing solution",
+        "lysozyme enzyme",
+        "protein extract",
+        "binder compound",
+        "aerating agent"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "鸡蛋"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "卵"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Ei"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Ei"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Huevo"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E161b",
+          "kind": "additiveCode",
+          "note": "lutein from egg yolks sometimes"
+        },
+        {
+          "text": "Ovotransferrin",
+          "kind": "compound",
+          "note": "egg white protein"
+        }
+      ]
+    }
+  ]
+}

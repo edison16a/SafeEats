@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "treeNut",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "almond",
+        "walnut",
+        "cashew",
+        "hazelnut",
+        "pistachio",
+        "pecan",
+        "brazil nut",
+        "macadamia",
+        "pine nut",
+        "chestnut",
+        "nut butter",
+        "nut oil",
+        "nut paste",
+        "nut flour",
+        "nut meal",
+        "crushed nuts",
+        "toasted nuts",
+        "candied nuts",
+        "nut milk",
+        "nut extract",
+        "nut brittle",
+        "nut protein",
+        "nut spread",
+        "chopped nuts",
+        "nut mix",
+        "nut bar",
+        "tree nuts",
+        "tree nut",
+        "almond extract",
+        "crushed nut",
+        "candied nut",
+        "chopped nut",
+        "praline",
+        "marzipan",
+        "frangipane",
+        "nutty essence",
+        "nut syrup",
+        "nut concentrate",
+        "roasted nut",
+        "toasted nut",
+        "spiced nut",
+        "nutty mix",
+        "granola clusters",
+        "nut oil residue",
+        "processed kernel",
+        "nut protein isolate",
+        "flavored kernel",
+        "nut essence"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        {
+          "text": "坚果",
+          "kind": "ingredient",
+          "note": "nuts"
+        },
+        {
+          "text": "杏仁",
+          "kind": "ingredient",
+          "note": "almond"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        {
+          "text": "ナッツ",
+          "kind": "ingredient",
+          "note": "nuts"
+        }
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Noten"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Nüsse"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        {
+          "text": "Nueces",
+          "kind": "ingredient",
+          "note": "nuts"
+        }
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E322",
+          "kind": "additiveCode",
+          "note": "nut-based lecithin, if from tree nuts"
+        },
+        {
+          "text": "Juglans regia",
+          "kind": "scientificName",
+          "note": "walnut"
+        }
+      ]
+    }
+  ]
+}

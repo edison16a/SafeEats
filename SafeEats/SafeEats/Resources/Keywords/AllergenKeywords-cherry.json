@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "cherry",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "cherry",
+        "fresh cherry",
+        "dried cherry",
+        "cherry juice",
+        "cherry extract",
+        "cherry puree",
+        "cherry compote",
+        "cherry jam",
+        "cherry preserves",
+        "canned cherry",
+        "organic cherry",
+        "cherry tart",
+        "cherry pie",
+        "cherry cobbler",
+        "cherry topping",
+        "maraschino cherry",
+        "cherry sauce",
+        "cherry syrup",
+        "cherry chunks",
+        "cherry flavor",
+        "black cherry",
+        "sour cherry",
+        "cherry dessert",
+        "cherry glaze",
+        "cherry powder"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "樱桃"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "さくらんぼ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Kers"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Kirsche"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Cereza"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Prunus avium",
+          "kind": "scientificName",
+          "note": "sweet cherry"
+        },
+        {
+          "text": "Anthocyanin",
+          "kind": "compound"
+        }
+      ]
+    }
+  ]
+}

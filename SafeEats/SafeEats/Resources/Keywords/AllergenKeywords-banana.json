@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "banana",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "banana",
+        "fresh banana",
+        "ripe banana",
+        "overripe banana",
+        "banana chunks",
+        "banana slices",
+        "banana puree",
+        "banana smoothie",
+        "banana juice",
+        "banana extract",
+        "banana powder",
+        "dried banana",
+        "banana chips",
+        "banana bread",
+        "banana cake",
+        "banana dessert",
+        "banana topping",
+        "banana flavor",
+        "banana syrup",
+        "banana concentrate",
+        "banana sorbet",
+        "banana milkshake",
+        "banana preserves",
+        "banana jam",
+        "banana custard"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "香蕉"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "バナナ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Banaan"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Banane"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Plátano"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Musa acuminata",
+          "kind": "scientificName",
+          "note": "banana"
+        },
+        {
+          "text": "Isoamyl acetate",
+          "kind": "compound",
+          "note": "banana flavor compound"
+        }
+      ]
+    }
+  ]
+}

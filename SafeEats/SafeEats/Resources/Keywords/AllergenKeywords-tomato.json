@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "tomato",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "tomato",
+        "fresh tomato",
+        "dried tomato",
+        "sun-dried tomato",
+        "tomato juice",
+        "tomato puree",
+        "tomato paste",
+        "tomato sauce",
+        "tomato concentrate",
+        "tomato ketchup",
+        "canned tomato",
+        "tomato chunks",
+        "organic tomato",
+        "cherry tomato",
+        "heirloom tomato",
+        "roma tomato",
+        "tomato salsa",
+        "tomato broth",
+        "tomato soup",
+        "tomato salad",
+        "tomato relish",
+        "tomato glaze",
+        "tomato extract",
+        "tomato topping",
+        "tomato seasoning",
+        "tomato powder"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "番茄"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "トマト"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Tomaat"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Tomate"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Tomate"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Solanum lycopersicum",
+          "kind": "scientificName"
+        },
+        {
+          "text": "Lycopene",
+          "kind": "compound"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "sulfite",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "sulfite preservative",
+        "sulfur dioxide",
+        "potassium metabisulfite",
+        "sodium metabisulfite",
+        "sodium bisulfite",
+        "sulfurous acid",
+        "sulfite solution",
+        "dried fruits with sulfites",
+        "sulfite wine",
+        "sulfite-treated vegetables",
+        "sulfite spray",
+        "sulfite additive",
+        "canned food with sulfites",
+        "sulfite seasoning",
+        "sulfite powder",
+        "sulfite crystals",
+        "sulfite agent",
+        "sulfite rinse",
+        "sulfite label",
+        "sulfite declaration",
+        "sulfite allergy",
+        "sulfite warning",
+        "sulfite preservative code",
+        "sulfite regulation",
+        "sulfite control",
+        "sulfite",
+        "preservative code",
+        "acidic solution",
+        "wine additive",
+        "food-grade sulfur",
+        "dried fruit preservative",
+        "vegetable rinse",
+        "preservative compound",
+        "preservative extract",
+        "antioxidant agent",
+        "sulfur compound",
+        "metabisulfite blend",
+        "preservative mix",
+        "preservative solution",
+        "preservative treatment",
+        "chemical antioxidant",
+        "ingredient additive",
+        "chemical stabilizer",
+        "preservative binder",
+        "antioxidant blend",
+        "preservative concentrate"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "亚硫酸盐"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "亜硫酸塩"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Sulfiet"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Sulfite"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Sulfito"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E220",
+          "kind": "additiveCode",
+          "note": "sulfur dioxide"
+        },
+        {
+          "text": "E224",
+          "kind": "additiveCode",
+          "note": "potassium metabisulfite"
+        }
+      ]
+    }
+  ]
+}

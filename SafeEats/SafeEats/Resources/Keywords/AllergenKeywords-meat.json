@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "meat",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "beef",
+        "pork",
+        "chicken",
+        "turkey",
+        "lamb",
+        "veal",
+        "bacon",
+        "sausage",
+        "ham",
+        "prosciutto",
+        "salami",
+        "jerky",
+        "duck",
+        "goat",
+        "rabbit",
+        "venison",
+        "bison",
+        "meatballs",
+        "meatloaf",
+        "ground meat",
+        "processed meat",
+        "cold cuts",
+        "deli meat",
+        "steak",
+        "roast",
+        "meat extract",
+        "meat flavoring",
+        "meat seasoning",
+        "meat paste",
+        "ground meat concentrate",
+        "fermented meat",
+        "processed meat product",
+        "meat collagen",
+        "meat-based broth",
+        "dried meat flakes",
+        "smoked meat",
+        "meat hydrolysate",
+        "meat-derived protein",
+        "meat essence",
+        "cooked meat powder",
+        "meat glaze",
+        "cured meat",
+        "meat additive",
+        "meat peptide",
+        "meat granules",
+        "mechanically separated meat",
+        "meat emulsifier",
+        "meat gelatin",
+        "meat flavor enhancer",
+        "dehydrated meat",
+        "bacon bits",
+        "sausage casing",
+        "gelatin",
+        "broth concentrate",
+        "lard",
+        "tallow",
+        "meat broth",
+        "animal protein",
+        "processed fat",
+        "marrow concentrate",
+        "beef collagen",
+        "pork hydrolysate",
+        "roast drippings",
+        "bone broth",
+        "poultry gelatin",
+        "steak essence",
+        "ham base",
+        "lamb powder",
+        "turkey stock"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "肉类",
+        {
+          "text": "牛肉",
+          "kind": "ingredient",
+          "note": "beef"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        {
+          "text": "肉",
+          "kind": "ingredient",
+          "note": "meat"
+        },
+        {
+          "text": "牛肉",
+          "kind": "ingredient",
+          "note": "beef"
+        }
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Vlees"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Fleisch"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Carne"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E250",
+          "kind": "additiveCode",
+          "note": "sodium nitrite - used in processed meats"
+        },
+        {
+          "text": "E252",
+          "kind": "additiveCode",
+          "note": "potassium nitrate - used in processed meats"
+        }
+      ]
+    }
+  ]
+}

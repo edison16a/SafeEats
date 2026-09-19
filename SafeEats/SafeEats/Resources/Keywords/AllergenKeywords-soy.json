@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "soy",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "soy",
+        "soybean",
+        "soy lecithin",
+        "soy protein",
+        "tofu",
+        "edamame",
+        "soy milk",
+        "tempeh",
+        "soy sauce",
+        "tamari",
+        "miso",
+        "natto",
+        "soy flour",
+        "textured vegetable protein",
+        "hydrolyzed soy protein",
+        "soy nuts",
+        "fermented soy",
+        "soy paste",
+        "soy meal",
+        "soy concentrate",
+        "soy isolate",
+        "soya",
+        "bean curd",
+        "soy oil",
+        "soy extract",
+        "soy emulsion",
+        "soy lecithin extract",
+        "fermented soybeans",
+        "soy hydrolysate",
+        "soy isoflavones",
+        "soy protein isolate",
+        "soy protein concentrate",
+        "toasted soybeans",
+        "soy peptides",
+        "soy-based emulsifier",
+        "soy-derived protein",
+        "soy gum",
+        "soy milk powder",
+        "soybean oil residue",
+        "soy flour blend",
+        "soy sauce powder",
+        "soy protein hydrolysate",
+        "soy-based broth",
+        "soy protein fragments",
+        "soy milk solids",
+        "fermented soy powder",
+        "defatted soy flour",
+        "soy extract concentrate",
+        "soy-based additive",
+        "textured protein",
+        "hydrolyzed protein",
+        "soybean derivative",
+        "miso paste",
+        "tamari sauce",
+        "lecithin emulsifier",
+        "vegetable oil blend",
+        "plant protein isolate",
+        "hydrolyzed vegetable protein",
+        "soybean curd",
+        "vegetable protein concentrate",
+        "vegetable flour",
+        "fermented paste",
+        "bean curd sticks",
+        "plant-based concentrate",
+        "vegetable gum",
+        "protein enhancer",
+        "plant-based emulsifier",
+        "vegetable concentrate",
+        "textured isolate",
+        "vegetable blend"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "大豆",
+        {
+          "text": "豆浆",
+          "kind": "ingredient",
+          "note": "soy milk"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "大豆",
+        {
+          "text": "醤油",
+          "kind": "ingredient",
+          "note": "soy sauce"
+        }
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Soja"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Soja"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Soya"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E322",
+          "kind": "additiveCode",
+          "note": "soy lecithin code"
+        },
+        {
+          "text": "Phytoestrogens",
+          "kind": "compound"
+        }
+      ]
+    }
+  ]
+}

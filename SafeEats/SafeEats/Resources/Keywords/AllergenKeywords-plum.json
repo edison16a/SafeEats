@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "plum",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "plum",
+        "fresh plum",
+        "plum extract",
+        "plum juice",
+        "plum puree",
+        "plum flavor",
+        "dried plum",
+        "plum concentrate",
+        "canned plum",
+        "organic plum",
+        "plum sauce",
+        "plum wine",
+        "plum jam",
+        "plum chutney",
+        "plum dessert",
+        "plum tart",
+        "plum pie",
+        "plum compote",
+        "plum glaze",
+        "plum preserves",
+        "plum chunks",
+        "plum pudding",
+        "plum syrup",
+        "stewed plum",
+        "pickled plum"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "李子"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "プラム"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Pruim"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Pflaume"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Ciruela"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Prunus domestica",
+          "kind": "scientificName",
+          "note": "plum"
+        },
+        {
+          "text": "Sorbitol",
+          "kind": "compound",
+          "note": "natural sugar in plums"
+        }
+      ]
+    }
+  ]
+}

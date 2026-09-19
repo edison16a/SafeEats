@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "shellfish",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "shrimp",
+        "crab",
+        "lobster",
+        "prawn",
+        "crayfish",
+        "mussels",
+        "clams",
+        "oyster",
+        "scallops",
+        "cockles",
+        "barnacles",
+        "langoustine",
+        "mantis shrimp",
+        "sea urchin",
+        "abalone",
+        "shellfish extract",
+        "shellfish broth",
+        "dried shellfish",
+        "shellfish powder",
+        "seafood mix",
+        "cuttlefish",
+        "whelk",
+        "scampi",
+        "shellfish oil",
+        "shellfish sauce",
+        "shellfish paste",
+        "shellfish",
+        "crustacean",
+        "shellfish protein",
+        "shellfish-derived broth",
+        "shellfish concentrate",
+        "shellfish essence",
+        "dried crustaceans",
+        "crustacean powder",
+        "shellfish collagen",
+        "fermented shellfish",
+        "shellfish meal",
+        "shellfish additive",
+        "shellfish peptide",
+        "shellfish extract powder",
+        "preserved shellfish",
+        "crushed shellfish shells",
+        "shellfish-based sauce",
+        "shellfish seasonings",
+        "processed shellfish",
+        "imitation lobster",
+        "shellfish-derived gelatin",
+        "shellfish hydrolysate",
+        "crab meat extract",
+        "shrimp shell powder",
+        "crustacean protein",
+        "dehydrated shrimp",
+        "prawn tails",
+        "crayfish extract",
+        "scallop powder",
+        "clam broth",
+        "oyster sauce",
+        "barnacle shells",
+        "cuttlefish ink",
+        "sea urchin roe",
+        "abalone slices",
+        "cockle meat",
+        "shrimp powder",
+        "seafood stock",
+        "marine protein",
+        "dried crustacean",
+        "shell broth",
+        "mollusk extract",
+        "crustacean hydrolysate",
+        "langoustine bisque",
+        "oyster concentrate",
+        "seafood peptide",
+        "shrimp collagen",
+        "seafood flavor enhancer"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        {
+          "text": "贝类",
+          "kind": "ingredient",
+          "note": "shellfish"
+        },
+        {
+          "text": "虾",
+          "kind": "ingredient",
+          "note": "shrimp"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        {
+          "text": "貝類",
+          "kind": "ingredient",
+          "note": "shellfish"
+        }
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Schaaldieren"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Schalentiere"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Mariscos"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Tropomyosin",
+          "kind": "compound",
+          "note": "shellfish protein"
+        },
+        {
+          "text": "E631",
+          "kind": "additiveCode",
+          "note": "disodium inosinate - can be shellfish-derived"
+        }
+      ]
+    }
+  ]
+}

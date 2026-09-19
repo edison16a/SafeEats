@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "fish",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "fish",
+        "anchovy",
+        "cod",
+        "salmon",
+        "tuna",
+        "trout",
+        "herring",
+        "sardine",
+        "mackerel",
+        "bass",
+        "flounder",
+        "grouper",
+        "snapper",
+        "halibut",
+        "catfish",
+        "tilapia",
+        "pollock",
+        "fish oil",
+        "fish sauce",
+        "fish paste",
+        "fish stock",
+        "imitation crab",
+        "surimi",
+        "fish fillet",
+        "smoked fish",
+        "pickled fish",
+        "fish extract",
+        "fish hydrolysate",
+        "fish gelatin",
+        "fish roe",
+        "fish caviar",
+        "fermented fish",
+        "fish collagen",
+        "fish meal",
+        "fish byproduct",
+        "fish protein",
+        "fish brine",
+        "fish-based broth",
+        "fish concentrate",
+        "fish flakes",
+        "fish slices",
+        "fish-derived oil",
+        "fish powder",
+        "fish-derived collagen",
+        "fish peptide",
+        "fish cartilage",
+        "fish enzyme",
+        "preserved fish",
+        "salted fish",
+        "fish paste mix",
+        "dehydrated fish",
+        "anchovy paste",
+        "roe",
+        "caviar",
+        "mackerel oil",
+        "pollock extract",
+        "omega-3 oil",
+        "herring concentrate",
+        "sardine flakes",
+        "trout essence",
+        "tuna stock",
+        "cod protein",
+        "bass hydrolysate",
+        "halibut powder",
+        "flounder collagen",
+        "snapper extract",
+        "smoked slices",
+        "seafood flavor",
+        "pickled roe",
+        "sea protein",
+        "marine gelatin"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "鱼"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "魚"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Vis"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Fisch"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Pescado"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E640",
+          "kind": "additiveCode",
+          "note": "glycine - can be fish-based"
+        },
+        {
+          "text": "Ictyic protein",
+          "kind": "scientificName"
+        }
+      ]
+    }
+  ]
+}

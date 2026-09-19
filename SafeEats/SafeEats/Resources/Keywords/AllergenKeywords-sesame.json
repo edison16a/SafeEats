@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "sesame",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "sesame",
+        "sesame seed",
+        "tahini",
+        "sesame oil",
+        "sesame paste",
+        "sesame flour",
+        "sesame salt",
+        "roasted sesame",
+        "black sesame",
+        "white sesame",
+        "toasted sesame",
+        "sesame cracker",
+        "sesame bun",
+        "sesame stick",
+        "sesame brittle",
+        "sesame extract",
+        "sesame powder",
+        "sesame snack",
+        "ground sesame",
+        "sesame seasoning",
+        "sesame garnish",
+        "sesame candy",
+        "sesame dressing",
+        "sesame bar",
+        "sesame sauce",
+        "benne seeds",
+        "roasted seeds",
+        "toasted oil",
+        "halvah",
+        "sesamol",
+        "sesamolin",
+        "seed flour",
+        "seed paste",
+        "seed oil",
+        "crushed seeds",
+        "seed butter",
+        "seed meal",
+        "black seed",
+        "white seed",
+        "seed mix",
+        "seed garnish",
+        "seed seasoning",
+        "seed brittle",
+        "seed dressing",
+        "seed crumble",
+        "seed topping",
+        "seed concentrate",
+        "seed glaze"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "芝麻",
+        {
+          "text": "芝麻酱",
+          "kind": "ingredient",
+          "note": "sesame paste"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "ゴマ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Sesam"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Sesam"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Sésamo"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E909",
+          "kind": "additiveCode",
+          "note": "polydimethylsiloxane, occasionally from seeds/oils"
+        },
+        {
+          "text": "Sesamin",
+          "kind": "compound"
+        }
+      ]
+    }
+  ]
+}

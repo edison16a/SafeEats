@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "corn",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "corn",
+        "corn syrup",
+        "cornstarch",
+        "cornmeal",
+        "corn flour",
+        "popcorn",
+        "corn oil",
+        "corn chips",
+        "corn flakes",
+        "polenta",
+        "hominy",
+        "corn tortilla",
+        "cornbread",
+        "high fructose corn syrup",
+        "corn grits",
+        "corn puffs",
+        "sweet corn",
+        "corn extract",
+        "corn gluten",
+        "corn starch",
+        "corn niblets",
+        "baby corn",
+        "corn kernels",
+        "corn cereal",
+        "corn snack",
+        "maize",
+        "masa harina",
+        "high fructose syrup",
+        "modified starch",
+        "corn bran",
+        "corn sugar",
+        "corn hydrolysate",
+        "corn syrup solids",
+        "vegetable starch",
+        "vegetable fiber",
+        "cornmeal mix",
+        "hominy grits",
+        "polenta flour",
+        "puffed grain",
+        "corn flake crumbs",
+        "sweet corn extract",
+        "corn germ",
+        "corn protein concentrate",
+        "vegetable gum",
+        "corn oil blend",
+        "starch derivative",
+        "grain emulsifier",
+        "vegetable syrup",
+        "grain binder"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "玉米"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "トウモロコシ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Maïs"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Mais"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Maíz"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E1404",
+          "kind": "additiveCode",
+          "note": "oxidized starch from corn"
+        },
+        {
+          "text": "Maltodextrin",
+          "kind": "compound",
+          "note": "often corn-based"
+        }
+      ]
+    }
+  ]
+}

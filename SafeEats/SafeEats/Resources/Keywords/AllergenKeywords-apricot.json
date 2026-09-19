@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "apricot",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "apricot",
+        "fresh apricot",
+        "dried apricot",
+        "apricot juice",
+        "apricot extract",
+        "apricot puree",
+        "apricot nectar",
+        "apricot jam",
+        "apricot preserves",
+        "canned apricot",
+        "apricot compote",
+        "apricot dessert",
+        "apricot tart",
+        "apricot pie",
+        "apricot flavor",
+        "apricot glaze",
+        "apricot concentrate",
+        "organic apricot",
+        "stewed apricot",
+        "apricot slices",
+        "apricot chunks",
+        "apricot topping",
+        "apricot smoothie",
+        "apricot syrup",
+        "apricot sauce"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "杏子"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "アプリコット"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Abrikoos"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Aprikose"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Albaricoque"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Prunus armeniaca",
+          "kind": "scientificName",
+          "note": "apricot"
+        },
+        {
+          "text": "Amygdalin",
+          "kind": "compound",
+          "note": "in apricot kernels"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "wheat",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "wheat",
+        "whole wheat",
+        "wheat flour",
+        "enriched wheat",
+        "cracked wheat",
+        "wheat germ",
+        "wheat bran",
+        "wheat starch",
+        "bulgur",
+        "durum",
+        "semolina",
+        "einkorn",
+        "spelt",
+        "farina",
+        "couscous",
+        "emmer",
+        "bread flour",
+        "cake flour",
+        "graham",
+        "self-rising flour",
+        "pastry flour",
+        "wheat protein",
+        "modified wheat starch",
+        "wheat gluten",
+        "matzo",
+        "farro",
+        "matzo meal",
+        "modified starch",
+        "bran",
+        "vital gluten",
+        "cracker crumbs",
+        "bread base",
+        "cake stabilizer",
+        "pasta mix",
+        "grain concentrate",
+        "flour blend",
+        "self-rising mix",
+        "emulsifier powder",
+        "noodle base",
+        "starch complex",
+        "enriched grain",
+        "grain powder",
+        "baked product binder",
+        "pastry crust blend"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "小麦"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "小麦"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Tarwe"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Weizen"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Trigo"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E300",
+          "kind": "additiveCode",
+          "note": "ascorbic acid, sometimes wheat-derived"
+        },
+        {
+          "text": "Wheat peptide",
+          "kind": "compound"
+        }
+      ]
+    }
+  ]
+}

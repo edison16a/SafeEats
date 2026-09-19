@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "comment": "Copy for the first-run walkthrough. The page flagged `requiresAcknowledgement` is the one that shows the agree button, so re-ordering pages here never needs a code change.",
+  "acknowledgementButtonTitle": "I Agree",
+  "pages": [
+    {
+      "id": "welcome",
+      "title": "Welcome to SafeEats",
+      "imageAssetName": "AppIcon",
+      "body": "SafeEats scans the ingredient list on a food label and highlights the allergens you have told it to watch for."
+    },
+    {
+      "id": "scanning",
+      "title": "How to Scan Your Food",
+      "imageAssetName": "slide2",
+      "body": "Point your camera at the ingredient list and tap Scan. SafeEats reads the label and highlights what it finds.",
+      "steps": [
+        "Open the Scan tab.",
+        "Point the camera at the food label.",
+        "Tap Scan and review the results."
+      ]
+    },
+    {
+      "id": "allergens",
+      "title": "Choose Your Allergens",
+      "imageAssetName": "slide3",
+      "body": "Tell SafeEats which allergens matter to you, and it will flag them in red whenever it spots them on a label.",
+      "steps": [
+        "Open the Allergens tab.",
+        "Switch on every allergen you need to avoid.",
+        "Go back to the Scan tab and scan a label."
+      ]
+    },
+    {
+      "id": "terms",
+      "title": "Terms of Use",
+      "body": "Please scroll to read the full terms before you continue.",
+      "requiresAcknowledgement": true,
+      "paragraphs": [
+        "SafeEats is a tool designed to scan product labels for allergens. While it is a useful resource, it may not always be completely accurate: user error, misprints, poor lighting, camera problems and other technical or non-technical limitations can all affect the result. SafeEats and its creators are not liable for any errors in the app or on product packaging, nor for any damages resulting from misuse of the app.",
+        "The app may not include every word used on every product, or every ingredient associated with a particular allergen group. The information SafeEats provides is for informational purposes only and is not medical advice. For any dietary concerns, please consult a certified dietitian or doctor. Manufacturers may change their ingredients, and packaging can be incomplete or incorrect. SafeEats only identifies words on a label; it makes no judgment about how those ingredients might affect you.",
+        "If you have allergies or intolerances, please do not rely on SafeEats alone to decide whether a product is safe for you, because we cannot guarantee the accuracy of our results. We accept no liability for allergic reactions or intolerances arising from food or drink consumed on the basis of information provided in the app. As the scanner screen reminds you, always double-check the product packaging yourself."
+      ]
+    }
+  ]
+}

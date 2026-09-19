@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "lupin",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "lupin flour",
+        "lupin seeds",
+        "lupin protein",
+        "lupin isolate",
+        "lupin bread",
+        "lupin pasta",
+        "lupin snack",
+        "sweet lupin",
+        "bitter lupin",
+        "lupin flakes",
+        "lupin sprouts",
+        "lupin oil",
+        "lupin meal",
+        "roasted lupin",
+        "organic lupin",
+        "lupin biscuit",
+        "lupin muffin",
+        "lupin cake",
+        "lupin cracker",
+        "lupin extract",
+        "lupin-based food",
+        "lupin powder",
+        "lupin gluten",
+        "lupin fiber",
+        "lupin cereal",
+        "lupin",
+        "legume flour",
+        "sweet legume",
+        "bitter legume",
+        "legume sprouts",
+        "legume extract",
+        "bean derivative",
+        "bean paste",
+        "bean meal",
+        "bean isolate",
+        "protein concentrate",
+        "lupine starch",
+        "lupine flakes",
+        "legume protein",
+        "bean oil",
+        "bean fiber",
+        "bean-based snack",
+        "bean cake",
+        "bean biscuit",
+        "bean powder",
+        "protein isolate",
+        "bean concentrate",
+        "bean crisp",
+        "bean bar",
+        "legume chips",
+        "bean seasoning"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        {
+          "text": "羽扇豆",
+          "kind": "ingredient",
+          "note": "lupin"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "ルピナス"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Lupine"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Lupine"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        {
+          "text": "Altramuz",
+          "kind": "ingredient",
+          "note": "lupin"
+        }
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Lupanine",
+          "kind": "compound",
+          "note": "alkaloid in lupin"
+        },
+        {
+          "text": "E440",
+          "kind": "additiveCode",
+          "note": "pectin, sometimes from legumes, though rarely lupin-based"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "celery",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "celery root",
+        "celery seed",
+        "celery salt",
+        "celery extract",
+        "celery powder",
+        "celery stalk",
+        "celeriac",
+        "raw celery",
+        "cooked celery",
+        "celery juice",
+        "celery leaves",
+        "celery sticks",
+        "dried celery",
+        "celery oil",
+        "celery seasoning",
+        "chopped celery",
+        "celery garnish",
+        "celery snack",
+        "organic celery",
+        "celery bits",
+        "celery soup",
+        "celery flakes",
+        "celery fiber",
+        "celery puree",
+        "diced celery",
+        "celery",
+        "raw stalks",
+        "cooked root",
+        "dried stalk",
+        "celery seed extract",
+        "vegetable broth",
+        "stock concentrate",
+        "root powder",
+        "celery leaf",
+        "diced stalks",
+        "vegetable seasoning",
+        "green stalk powder",
+        "flavoring concentrate",
+        "vegetable garnish",
+        "root fiber",
+        "stalk puree",
+        "raw vegetable",
+        "cooked greens",
+        "leaf garnish",
+        "dried root",
+        "stalk essence",
+        "root extract",
+        "aromatic greens"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        "芹菜"
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "セロリ"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Selderij"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Sellerie"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Apio"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "E621",
+          "kind": "additiveCode",
+          "note": "MSG from celery extracts, potentially"
+        },
+        {
+          "text": "Apiin",
+          "kind": "compound",
+          "note": "celery flavonoid"
+        }
+      ]
+    }
+  ]
+}

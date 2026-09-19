@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "allergenID": "mustard",
+  "groups": [
+    {
+      "language": "en",
+      "terms": [
+        "mustard",
+        "mustard seed",
+        "yellow mustard",
+        "dijon mustard",
+        "spicy mustard",
+        "whole-grain mustard",
+        "mustard oil",
+        "mustard sauce",
+        "mustard powder",
+        "mustard dressing",
+        "mustard paste",
+        "hot mustard",
+        "mild mustard",
+        "honey mustard",
+        "brown mustard",
+        "mustard extract",
+        "mustard seasoning",
+        "mustard greens",
+        "dry mustard",
+        "stone-ground mustard",
+        "English mustard",
+        "sweet mustard",
+        "garlic mustard",
+        "French mustard",
+        "German mustard",
+        "wasabi mustard",
+        "brassica seed",
+        "yellow condiment",
+        "spicy dressing",
+        "seed extract",
+        "whole-grain blend",
+        "dijon-style sauce",
+        "vinegar spice",
+        "stone-ground blend",
+        "prepared mustard",
+        "seed powder",
+        "emulsified spice",
+        "grainy sauce",
+        "vinegar blend",
+        "sharp flavoring",
+        "pungent dressing",
+        "seed concentrate",
+        "zesty dressing",
+        "seed derivative",
+        "bold sauce",
+        "grain-based spice",
+        "brassica garnish"
+      ]
+    },
+    {
+      "language": "zh",
+      "terms": [
+        {
+          "text": "芥末",
+          "kind": "ingredient",
+          "note": "mustard"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "terms": [
+        "マスタード"
+      ]
+    },
+    {
+      "language": "nl",
+      "terms": [
+        "Mosterd"
+      ]
+    },
+    {
+      "language": "de",
+      "terms": [
+        "Senf"
+      ]
+    },
+    {
+      "language": "es",
+      "terms": [
+        "Mostaza"
+      ]
+    },
+    {
+      "language": "und",
+      "terms": [
+        {
+          "text": "Allyl isothiocyanate",
+          "kind": "compound",
+          "note": "mustard pungent compound"
+        },
+        {
+          "text": "E415",
+          "kind": "additiveCode",
+          "note": "xanthan gum stabilizer in mustard"
+        }
+      ]
+    }
+  ]
+}
