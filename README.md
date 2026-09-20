@@ -1,143 +1,91 @@
 # SafeEats
 
-A food label scanning app for iOS, written in Swift and SwiftUI.
+A food label scanner for iOS, written in Swift and SwiftUI.
 
-Point your camera at an ingredient list and SafeEats reads it, matches it against a
-vocabulary of roughly 1,500 allergen keywords in six languages, and tells you what it
-found — flagging the allergens you have asked it to watch for in red, precautionary
-"may contain" mentions in amber, and everything else in green.
-
----
-
-## Contents
-
-- [Features](#features)
-- [How detection works](#how-detection-works)
-- [Project structure](#project-structure)
-- [Allergen data](#allergen-data)
-- [Building and testing](#building-and-testing)
-- [Disclaimer](#disclaimer)
-- [Release history](#release-history)
-- [App Store description](#app-store-description)
-- [Screenshots](#screenshots)
-- [Author](#author)
-
----
+Point your camera at an ingredient list. SafeEats reads it, checks it against about
+1,500 allergen keywords in six languages, and shows you what it found. Allergens you
+picked show in red, "may contain" warnings in amber, and everything else in green.
 
 ## Features
 
-**Real-time allergen detection.** Scan a food label and SafeEats highlights the
-allergens it recognises, so grocery shopping and meal planning take less guesswork.
+* Scans food labels with the camera and flags allergens on the spot.
+* All 23 allergens are available, for free. Other apps cap you at three.
+* Every result shows the keyword that triggered it, so you can see why something got
+  flagged.
+* Understands "may contain" and "produced in a facility" notices, and marks those
+  differently from real ingredients.
+* Keywords cover English, Spanish, German, Dutch, Chinese and Japanese.
+* 21 background styles, and your pick is remembered.
 
-**Every allergen, free.** SafeEats supports all 23 of its allergens at once and costs
-nothing. Comparable apps cap a free account at three.
+## Using the app
 
-**It shows its working.** Each result names the exact keyword that triggered it, so a
-match on an additive code such as `E322` is distinguishable from a match on the word
-"soy" and you can judge it yourself.
+1. Open the Allergens tab and switch on everything you need to avoid.
+2. Go to the Scan tab and point the camera at the food label.
+3. Tap Scan Now and read the results.
+4. Check the packaging yourself before you eat.
 
-**Precautionary statements are understood.** "May contain traces of peanuts and tree
-nuts" is reported as a precaution rather than as an ingredient, and a precaution on one
-line never softens an ingredient on the next.
+## How it works
 
-**Six languages.** The keyword vocabulary covers English, Spanish, German, Dutch,
-Chinese and Japanese, and text recognition is configured to match.
+Tapping Scan Now grabs a single camera frame. The app deliberately does not run text
+recognition on every frame, which would drain the battery for no real gain.
 
-**21 background styles**, and your choice is remembered between launches.
+Vision reads the text from that frame, set up with the same six languages the keyword
+lists cover.
 
----
+The text is then folded for comparison: lowercased, width normalised, and for Latin
+scripts stripped of accents, so a label reading "Maíz" matches the keyword "maiz".
+Accents are left alone for Japanese, because stripping them turns バター (butter) into
+ハター, which means nothing. Line breaks are kept, since they matter in the next step.
 
-## How detection works
+Then the app searches for every keyword. Latin words have to start at a word boundary,
+so "corn" still matches "cornstarch" but "ham" no longer matches "graham". Additive
+codes like E322 need a boundary on both sides. Chinese and Japanese are written without
+spaces, so those match anywhere.
 
-A scan runs through four stages.
+A match counts as a warning rather than an ingredient when a phrase like "may contain"
+appears within 80 characters before it, with no full stop or line break in between. One
+plain mention in the ingredient list outweighs any number of warnings.
 
-**1. Capture.** `CameraSession` keeps an `AVCaptureSession` running so the preview stays
-live, but discards every frame until you tap **Scan Now**. Recognising text on every
-frame would drain the battery for no benefit — one careful read is what you actually
-want. The capture connection is rotated to portrait so the recogniser receives an
-upright image.
+That gives three levels of result:
 
-**2. Recognition.** `TextRecognitionService` runs Vision's `VNRecognizeTextRequest` over
-the single captured frame, restricted to the languages the vocabulary covers *and* the
-installed Vision revision supports. Recognised lines are joined with newlines, because
-the line structure of a label carries meaning.
+* **Red**: one of your allergens, listed in the ingredients.
+* **Amber**: one of your allergens, but only in a "may contain" notice.
+* **Green**: found on the label, but not one of your allergens.
 
-**3. Normalisation.** `ScannedLabelText` folds the text two different ways:
-
-| Folding | Applies to | Why |
-| --- | --- | --- |
-| Case + width + **diacritics** stripped | Latin-script terms | So a label reading `Maíz` matches the keyword `maiz` |
-| Case + width only | Chinese, Japanese, Korean | Stripping combining marks would turn `バター` (butter) into `ハター`, which means nothing |
-
-Runs of spaces collapse; line breaks are deliberately kept.
-
-**4. Matching.** `AllergenDetector` searches the folded text for every keyword in
-`KeywordIndex`, applying a boundary rule chosen by the keyword itself:
-
-| Keyword | Boundary | Effect |
-| --- | --- | --- |
-| Latin word, e.g. `corn` | Must start at a word boundary | Matches `cornstarch`, does **not** match `ham` inside `graham` |
-| Additive code, e.g. `E322` | Boundary on both sides | Does not match `E3221` |
-| CJK, e.g. `牛奶` | None | These scripts are written without spaces |
-
-A match is then classified as precautionary if a phrase such as "may contain" or
-"produced in a facility" appears within 80 characters *before* it with no sentence
-terminator in between. A single outright mention outweighs any number of precautions.
-
-Finally each allergen is given a severity:
-
-| Severity | Colour | Meaning |
-| --- | --- | --- |
-| `avoid` | Red | One of your allergens, named in the ingredients |
-| `advisory` | Amber | One of your allergens, named only in a "may contain" statement |
-| `informational` | Green | On the label, but not one of your allergens |
-
-`AllergenDetector` is a pure value type — the same text and the same profile always
-produce the same result, with no camera and no storage involved — which is what makes
-the rules above straightforward to unit test.
-
-### A deliberate bias
-
-SafeEats errs towards over-reporting. A keyword matches inside longer words, and phrases
-such as "gluten free" are **not** treated as negations, so a gluten-free label will still
-flag gluten. For an allergy tool a false alarm is a nuisance; a missed allergen is not.
-Showing the matched keyword on every result is what keeps that bias honest.
-
----
+SafeEats leans towards flagging too much rather than too little. Keywords match inside
+longer words, and "gluten free" is not read as a negation, so a gluten free label will
+still flag gluten. A false alarm is annoying. A missed allergen is worse. Showing the
+matched keyword on every result is what keeps that trade honest.
 
 ## Project structure
 
 ```
 SafeEats/SafeEats/
-├── App/              Composition root: the App, RootView, AppDependencies
-├── Models/           Value types, all Decodable from the JSON resources
-├── Services/         Resource loading, keyword index, detector, Vision, camera
-├── State/            @Observable stores: allergen profile, theme, scan session
-├── Support/          Text folding, boundary matching, colour parsing, logging
-├── Views/            One folder per screen, plus shared components
-└── Resources/        All content as JSON — see below
+├── App/        entry point, root view, dependency setup
+├── Models/     value types, all decoded from JSON
+├── Services/   resource loading, keyword index, detector, Vision, camera
+├── State/      observable stores for the profile, theme and scan
+├── Support/    text folding, matching, colour parsing, logging
+├── Views/      one folder per screen, plus shared components
+└── Resources/  all content, as JSON
 ```
 
-Dependencies are built once in `AppDependencies` and passed down explicitly; nothing
-below that reaches for a singleton or loads a resource on its own.
-
----
+Everything is built once in `AppDependencies` and passed down from there. Nothing below
+that reaches for a singleton or loads its own files.
 
 ## Allergen data
 
-**No allergen data lives in Swift source.** Everything is JSON under
-`SafeEats/SafeEats/Resources/`:
+No allergen data lives in Swift. It is all JSON under `SafeEats/SafeEats/Resources/`:
 
-| File | Contents |
-| --- | --- |
-| `AllergenCatalog.json` | The 23 allergens, their display names, icons and categories |
-| `Keywords/AllergenKeywords-<id>.json` | One file per allergen: its keywords, grouped by language |
-| `DetectionRules.json` | Precautionary phrases and the lookbehind window |
-| `Themes.json` | The 21 background styles |
-| `OnboardingContent.json` | Walkthrough copy and the terms of use |
+* `AllergenCatalog.json` lists the 23 allergens with their names, icons and categories.
+* `Keywords/AllergenKeywords-<id>.json` holds one allergen's keywords, grouped by
+  language.
+* `DetectionRules.json` holds the "may contain" phrases.
+* `Themes.json` holds the 21 background styles.
+* `OnboardingContent.json` holds the walkthrough text and the terms of use.
 
-A keyword file looks like this. Most terms are plain strings; the object form is only
-needed when a term carries extra meaning:
+A keyword file looks like this. Most terms are plain strings, and the longer form is
+only needed when a term carries extra information:
 
 ```json
 {
@@ -156,33 +104,31 @@ needed when a term carries extra meaning:
 }
 ```
 
-`kind` is one of `ingredient` (the default), `additiveCode`, `scientificName` or
-`compound`. Language `und` is for terms that belong to no single language.
+`kind` can be `ingredient` (the default), `additiveCode`, `scientificName` or
+`compound`. Language `und` is for terms that belong to no particular language.
 
-### Adding an allergen
+To add an allergen:
 
 1. Add an image set named after the allergen id to `Assets.xcassets`.
 2. Create `Resources/Keywords/AllergenKeywords-<id>.json`.
 3. Add an entry to the `allergens` array in `AllergenCatalog.json`.
 
-No Swift changes are required. The same is true of correcting a keyword, adding a
-language, adding a background style or amending the terms of use.
-
----
+No Swift changes needed. The same goes for fixing a keyword, adding a language, adding
+a background style, or editing the terms of use.
 
 ## Building and testing
 
-**Requirements:** Xcode 16 or later, iOS 18.0 deployment target, a physical device for
-camera scanning (the simulator has no camera).
+You need Xcode 16 or later and iOS 18. Scanning needs a real device, since the
+simulator has no camera.
 
 ```sh
 open SafeEats/SafeEats.xcodeproj
 ```
 
-The project uses Xcode's synchronized file groups, so files added under
-`SafeEats/SafeEats/` are picked up automatically — there is no project file to edit.
+The project uses Xcode's synchronized groups, so any file added under
+`SafeEats/SafeEats/` is picked up automatically. There is no project file to edit.
 
-Run the tests with **⌘U**, or:
+Run the tests with Cmd+U, or:
 
 ```sh
 xcodebuild test \
@@ -191,78 +137,29 @@ xcodebuild test \
   -destination 'platform=iOS Simulator,name=iPhone 16'
 ```
 
-`SafeEatsTests` covers text folding, boundary matching, precautionary detection,
-severity assignment, resource decoding and the migration of saved allergen selections
-from the previous release. It runs against hand-built fixtures for the rules and against
-the real bundled JSON for the integration checks.
-
----
+They cover text folding, keyword matching, "may contain" handling, severity, JSON
+decoding, and the migration of saved allergen picks from the previous release.
 
 ## Disclaimer
 
-SafeEats is a helpful tool, not a medical device. It may not always be accurate: user
-error, misprints, poor lighting and camera limitations all affect the result, and the
-keyword vocabulary does not cover every word used on every product. Manufacturers change
-their ingredients, and packaging can be incomplete or incorrect.
+SafeEats is a helpful tool, not a medical device. It will not always be right. User
+error, misprints, bad lighting and camera limits all affect the result, and the keyword
+lists do not cover every word used on every product. Manufacturers change their
+ingredients, and packaging can be incomplete or wrong.
 
-**If you have allergies or intolerances, do not rely on SafeEats alone to decide whether
-a product is safe. Always double-check the packaging yourself.** The full terms of use
-are shown during onboarding and stored in `OnboardingContent.json`.
-
----
+If you have allergies or intolerances, do not rely on SafeEats alone to decide whether
+something is safe for you. Always check the packaging yourself. The full terms of use
+are shown when you first open the app.
 
 ## Release history
 
-| Version | Change |
-| --- | --- |
-| 1.0 Beta | Onboarding |
-| 1.1 Beta | Allergen database |
-| 1.1.1 Beta | Bug fixes |
-| 1.2 Beta | Keyword database |
-| 1.3 Beta | Camera text detection |
-| 1.3.1 Beta | Camera bug fixes |
-| 2.0 | Rebuilt: allergen data moved to JSON, modular architecture, rewritten matching engine, unit tests |
-
----
-
-## App Store description
-
-**SafeEats: an easy-to-use food label scanner for allergies**
-
-SafeEats is an intuitive app designed to help people with food allergies or dietary
-restrictions make safe, informed choices. Scan food labels in real time and SafeEats
-identifies the allergens it finds, giving you peace of mind on every meal and every
-grocery run.
-
-**Features**
-
-*Real-time allergen detection.* Scan a food label and see instantly which allergens
-appear in the ingredient list.
-
-*Ingredient summaries.* SafeEats does not just find dangerous ingredients — it
-summarises what is on the label, so you can see everything it read.
-
-*A clean, simple interface.* The layout and visuals are designed so you can scan a label
-and understand the result at a glance.
-
-**How to use SafeEats**
-
-1. Open the app and go to the Allergens tab.
-2. Switch on every allergen you need to avoid.
-3. Go to the Scan tab and point your camera at the food label.
-4. Tap Scan Now and review the results. Allergens you selected appear in red, "may
-   contain" warnings in amber, and other detected ingredients in green.
-5. Double-check the packaging, and eat safely.
-
-**Ideal for**
-
-- People with food allergies, checking labels for allergens.
-- Parents making sure snacks and meals are safe for their children.
-- Dietary-conscious shoppers avoiding unwanted ingredients.
-
-We want to make food safety simpler. Download SafeEats to stay informed with every bite.
-
----
+* 1.0 Beta: onboarding
+* 1.1 Beta: allergen database
+* 1.1.1 Beta: bug fixes
+* 1.2 Beta: keyword database
+* 1.3 Beta: camera text detection
+* 1.3.1 Beta: camera bug fixes
+* 2.0: allergen data moved to JSON, modular rewrite, new matching engine, unit tests
 
 ## Screenshots
 
@@ -273,9 +170,7 @@ We want to make food safety simpler. Download SafeEats to stay informed with eve
 
 ![Allergen selection](https://github.com/user-attachments/assets/648c1b43-a3d5-4618-8482-e226d4e06ab3)
 
----
-
 ## Author
 
-**Edison Law** — camera scanning, allergen keyword database, allergen toggles, scanning
+Edison Law. Camera scanning, allergen keyword database, allergen toggles, scanning
 delay and camera preview.
