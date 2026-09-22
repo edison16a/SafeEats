@@ -2,6 +2,8 @@
 
 A food label scanner for iOS, written in Swift and SwiftUI.
 
+https://apps.apple.com/us/app/safeeats-food-scanner/id6739729515
+
 Point your camera at an ingredient list. SafeEats reads it, checks it against about
 1,500 allergen keywords in six languages, and shows you what it found. Allergens you
 picked show in red, "may contain" warnings in amber, and everything else in green.
