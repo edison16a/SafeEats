@@ -19,6 +19,12 @@ picked show in red, "may contain" warnings in amber, and everything else in gree
 * Keywords cover English, Spanish, German, Dutch, Chinese and Japanese.
 * 21 background styles, and your pick is remembered.
 
+# Screenshots
+
+<img width="427" height="914" alt="image" src="https://github.com/user-attachments/assets/daf35bc6-6d6b-45b0-aa7d-344300841074" />
+<img width="427" height="921" alt="image" src="https://github.com/user-attachments/assets/9d4f3607-0268-41fa-a78a-ea8bb653ac4a" />
+<img width="433" height="915" alt="image" src="https://github.com/user-attachments/assets/5de0a5aa-f91b-4ec5-b887-d5eab415bdc0" />
+
 ## Using the app
 
 1. Open the Allergens tab and switch on everything you need to avoid.
@@ -167,10 +173,6 @@ are shown when you first open the app.
 
 <img width="300" alt="SafeEats logo" src="https://github.com/user-attachments/assets/01699d36-ff39-4748-b145-eaa51b9472ca">
 <img width="300" alt="SafeEats logo, dark" src="https://github.com/user-attachments/assets/63b4ef95-1a98-4d13-ae84-579bce0564d6">
-
-<img width="392" alt="Scan screen" src="https://github.com/user-attachments/assets/96a64e4f-a628-4bbe-803b-48c1e1d7b9d0">
-
-![Allergen selection](https://github.com/user-attachments/assets/648c1b43-a3d5-4618-8482-e226d4e06ab3)
 
 ## Author
 
