@@ -14,7 +14,7 @@ import OSLog
 /// Scanning is deliberately on demand: the session streams continuously so the
 /// preview stays live, but frames are dropped on the floor until
 /// ``requestSingleFrame()`` arms the next one. Running text recognition on every
-/// frame would heat the device for no benefit — a user photographing an
+/// frame would heat the device for no benefit. Someone photographing an
 /// ingredient list wants one careful read, not thirty per second.
 ///
 /// - Note: Marked `@unchecked Sendable` because its mutable state is protected
@@ -91,7 +91,7 @@ final class CameraSession: NSObject, @unchecked Sendable {
                 do {
                     try self.configureIfNeeded()
                     if !self.session.isRunning {
-                        // Blocking call — this is why it is not on the main thread.
+                        // Blocking call, which is why it is not on the main thread.
                         self.session.startRunning()
                     }
                     continuation.resume()

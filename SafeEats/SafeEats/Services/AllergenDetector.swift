@@ -9,7 +9,7 @@ import Foundation
 ///
 /// The detector is a pure value type: same text plus same profile always gives
 /// the same result, with no camera, no storage and no main-actor involvement.
-/// That is what makes the matching rules testable in isolation — see
+/// That is what makes the matching rules testable in isolation. See
 /// `AllergenDetectorTests`.
 struct AllergenDetector: Sendable {
     private let allergensByID: [AllergenID: Allergen]
@@ -92,7 +92,7 @@ struct AllergenDetector: Sendable {
     /// Orders evidence so the most informative term is first.
     ///
     /// Definite matches beat precautionary ones, then longer terms beat shorter
-    /// ones — "peanut butter" says more about why something was flagged than
+    /// ones. "peanut butter" says more about why something was flagged than
     /// "peanut" does.
     private static func ranked(_ evidence: [MatchEvidence]) -> [MatchEvidence] {
         evidence.sorted { lhs, rhs in

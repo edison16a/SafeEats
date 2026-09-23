@@ -37,8 +37,9 @@ struct AllergenRepository: Sendable {
         }
 
         // A mismatch means the catalog and the keyword file disagree about which
-        // allergen they describe. Detection still works — the catalog wins — but
-        // it almost certainly signals a copy-paste error in the resources.
+        // allergen they describe. Detection still works, because the catalog
+        // wins, but it almost certainly means a copy-paste error in the
+        // resources.
         for (allergen, set) in zip(catalog.allergens, keywordSets) where set.allergenID != allergen.id {
             Log.resources.warning(
                 "Keyword file for '\(allergen.id.rawValue, privacy: .public)' declares '\(set.allergenID.rawValue, privacy: .public)'."

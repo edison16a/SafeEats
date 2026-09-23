@@ -11,8 +11,9 @@ import OSLog
 
 /// Reads text out of a camera frame with the Vision framework.
 ///
-/// Immutable and free of shared mutable state — a fresh `VNRecognizeTextRequest`
-/// is created per call — so it is safe to use from the capture queue.
+/// Immutable and free of shared mutable state, with a fresh
+/// `VNRecognizeTextRequest` created per call, so it is safe to use from the
+/// capture queue.
 final class TextRecognitionService: Sendable {
     enum RecognitionError: LocalizedError {
         case requestFailed(any Error)

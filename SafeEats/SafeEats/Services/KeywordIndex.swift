@@ -32,8 +32,8 @@ struct KeywordIndex: Sendable {
     /// Terms are de-duplicated per allergen by their folded form, because the
     /// source vocabularies legitimately repeat a word across languages ("Ei" is
     /// both Dutch and German) and searching for it twice would only cost time.
-    /// The same word belonging to *different* allergens is kept — "wheat"
-    /// really does flag both wheat and gluten.
+    /// The same word belonging to *different* allergens is kept, because
+    /// "wheat" really does flag both wheat and gluten.
     init(keywordSets: [AllergenKeywordSet]) {
         var entries: [Entry] = []
         entries.reserveCapacity(keywordSets.reduce(0) { $0 + $1.allTerms.count })
