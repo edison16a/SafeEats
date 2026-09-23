@@ -173,7 +173,7 @@ are shown when you first open the app.
 * 1.3.1 Beta: camera bug fixes
 * 2.0: allergen data moved to JSON, modular rewrite, new matching engine, unit tests
 
-## Screenshots
+## Logos
 
 <img width="300" alt="SafeEats logo" src="https://github.com/user-attachments/assets/01699d36-ff39-4748-b145-eaa51b9472ca">
 <img width="300" alt="SafeEats logo, dark" src="https://github.com/user-attachments/assets/63b4ef95-1a98-4d13-ae84-579bce0564d6">
