@@ -41,11 +41,6 @@ struct AllergenDetection: Identifiable, Hashable, Sendable {
 
     /// The single most informative term to show on a compact chip.
     var headlineTerm: KeywordTerm? { evidence.first?.term }
-
-    /// True when the allergen was named only in precautionary statements.
-    var isPrecautionaryOnly: Bool {
-        !evidence.isEmpty && evidence.allSatisfy(\.isPrecautionary)
-    }
 }
 
 /// The outcome of a single scan.

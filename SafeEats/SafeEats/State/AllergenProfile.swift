@@ -51,13 +51,6 @@ final class AllergenProfile {
         setEnabled(!isEnabled(id), for: id)
     }
 
-    /// Clears every selection.
-    func removeAll() {
-        guard !enabledIDs.isEmpty else { return }
-        enabledIDs = []
-        save()
-    }
-
     private func save() {
         defaults.set(enabledIDs.map(\.rawValue).sorted(), forKey: Key.enabledIDs)
     }
