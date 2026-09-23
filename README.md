@@ -11,7 +11,9 @@ picked show in red, "may contain" warnings in amber, and everything else in gree
 ## Features
 
 * Scans food labels with the camera and flags allergens on the spot.
-* All 23 allergens are available, for free. Other apps cap you at three.
+* The first food label scanner that is 100% free. All 23 allergens are on offer with no
+  cap, where other apps limit you to three.
+* Built for allergies specifically, not bolted onto a general nutrition app.
 * Every result shows the keyword that triggered it, so you can see why something got
   flagged.
 * Understands "may contain" and "produced in a facility" notices, and marks those
@@ -19,7 +21,7 @@ picked show in red, "may contain" warnings in amber, and everything else in gree
 * Keywords cover English, Spanish, German, Dutch, Chinese and Japanese.
 * 21 background styles, and your pick is remembered.
 
-# Screenshots
+## Screenshots
 
 <img width="427" height="914" alt="image" src="https://github.com/user-attachments/assets/daf35bc6-6d6b-45b0-aa7d-344300841074" />
 
@@ -95,6 +97,7 @@ No allergen data lives in Swift. It is all JSON under `SafeEats/SafeEats/Resourc
 * `DetectionRules.json` holds the "may contain" phrases.
 * `Themes.json` holds the 21 background styles.
 * `OnboardingContent.json` holds the walkthrough text and the terms of use.
+* `AppConfiguration.json` holds links, currently just the allergen request form.
 
 A keyword file looks like this. Most terms are plain strings, and the longer form is
 only needed when a term carries extra information:
@@ -172,6 +175,43 @@ are shown when you first open the app.
 * 1.3 Beta: camera text detection
 * 1.3.1 Beta: camera bug fixes
 * 2.0: allergen data moved to JSON, modular rewrite, new matching engine, unit tests
+
+## App Store description
+
+Listing copy, kept here so it stays in step with the app.
+
+**SafeEats: an easy to use food label scanner for allergies**
+
+SafeEats is an intuitive app designed to help people with food allergies or dietary
+restrictions make safe and informed choices. Scan food labels in real time and SafeEats
+identifies any allergens, giving you peace of mind on every meal and every grocery run.
+
+**Real-time allergen detection.** Scans food labels and detects allergens on the spot,
+which makes grocery shopping and meal planning safer and easier.
+
+**Ingredient summaries.** SafeEats does not only find the dangerous ingredients. It
+summarises everything it read on the label.
+
+**Clean, easy interface.** SafeEats is built for simplicity. The layout and visuals let
+you scan a label and take in the allergen information at a glance.
+
+How to use SafeEats:
+
+1. Open the app and go to the Allergens tab.
+2. Switch on the allergens you have.
+3. Point your camera at the food label.
+4. Review what was detected. Allergens you selected show in red, "may contain" warnings
+   in amber, and other detected ingredients in green.
+5. Eat safely.
+
+Ideal for:
+
+* People with food allergies, checking labels for allergens.
+* Parents of children with allergies, making sure snacks and meals are safe.
+* Dietary-conscious shoppers avoiding unwanted ingredients.
+
+Join the SafeEats community. We want to make food safety simpler and safer. Download now
+to stay safe and informed with every bite.
 
 ## Logos
 
