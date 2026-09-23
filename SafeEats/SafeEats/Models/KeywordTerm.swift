@@ -19,7 +19,7 @@ enum KeywordKind: String, Hashable, Sendable, Decodable {
 
 /// A single word or phrase that indicates an allergen is present.
 ///
-/// Decodes from either form so the resource files stay readable — the vast
+/// Decodes from either form so the resource files stay readable. The vast
 /// majority of terms need nothing but their text:
 ///
 /// ```json

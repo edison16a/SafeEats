@@ -52,9 +52,9 @@ extension ThemeColor: Decodable {
 
 /// A background style the user can pick on the Styles tab.
 ///
-/// Previously the 21 styles were written out twice — once as a `switch` that
-/// built the background and once as an array of preview swatches — so a change
-/// to one had to be mirrored by hand in the other. Both now read this.
+/// Previously the 21 styles were written out twice. One copy was a `switch`
+/// that built the background, the other an array of preview swatches, so a
+/// change to one had to be mirrored by hand in the other. Both now read this.
 struct AppTheme: Identifiable, Hashable, Sendable {
     /// Where a gradient starts and ends.
     enum GradientPoint: String, Sendable, Decodable {

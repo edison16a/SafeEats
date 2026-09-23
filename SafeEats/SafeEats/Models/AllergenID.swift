@@ -8,8 +8,8 @@ import Foundation
 /// A stable identifier for an allergen, e.g. `"peanut"` or `"treeNut"`.
 ///
 /// Wrapping the raw string keeps allergen ids from being mixed up with the
-/// other strings flying around the detector — asset names, keyword text,
-/// category ids — all of which are also `String`.
+/// other strings flying around the detector. Asset names, keyword text and
+/// category ids are all `String` too.
 ///
 /// The identifier doubles as the name of the allergen's image set in the asset
 /// catalog; see ``Allergen/iconAssetName``.

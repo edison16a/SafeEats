@@ -18,9 +18,9 @@ struct AllergenCategory: Identifiable, Hashable, Sendable, Decodable {
 
 /// One allergen the app can look for.
 ///
-/// This is metadata only — the words that identify the allergen on a label live
-/// in a separate resource named by ``keywordResourceName`` and are loaded on
-/// demand by ``AllergenRepository``.
+/// This is metadata only. The words that identify the allergen on a label live
+/// in a separate resource named by ``keywordResourceName``, loaded on demand by
+/// ``AllergenRepository``.
 struct Allergen: Identifiable, Hashable, Sendable, Decodable {
     let id: AllergenID
     /// Human-readable name, e.g. "Tree Nut".

@@ -22,7 +22,7 @@ enum DetectionSeverity: Hashable, Sendable, Comparable {
 /// The specific keyword that caused an allergen to be flagged.
 ///
 /// Carrying the evidence through to the UI is what makes a match explainable:
-/// a chip reading "Soy — E322" tells the user far more than "Soy" alone, and
+/// a chip reading "Soy, E322" tells the user far more than "Soy" alone, and
 /// lets them judge a broad match for themselves.
 struct MatchEvidence: Hashable, Sendable {
     let term: KeywordTerm
