@@ -36,6 +36,7 @@ struct MainTabView: View {
             AllergenScreen(
                 catalog: dependencies.repository.catalog,
                 profile: dependencies.profile,
+                requestFormURL: dependencies.configuration.allergenRequestForm,
                 onSelectionChanged: { dependencies.scanModel.reevaluateLastScan() }
             )
 

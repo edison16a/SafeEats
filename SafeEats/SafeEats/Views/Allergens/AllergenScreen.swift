@@ -12,11 +12,10 @@ import SwiftUI
 struct AllergenScreen: View {
     let catalog: AllergenCatalog
     let profile: AllergenProfile
+    /// Where users can ask for an allergen that is not in the catalog.
+    let requestFormURL: URL?
     /// Called after a toggle changes, so the Scan tab can re-score its last result.
     let onSelectionChanged: () -> Void
-
-    /// Where users can ask for an allergen that is not in the catalog.
-    private static let requestFormURL = URL(string: "https://forms.gle/Ehd5V2Vcz9wqbQnL6")
 
     var body: some View {
         ScrollView {
@@ -82,7 +81,7 @@ struct AllergenScreen: View {
 
     private var requestButton: some View {
         Group {
-            if let url = Self.requestFormURL {
+            if let url = requestFormURL {
                 Link(destination: url) {
                     Label("Allergen not listed? Request it", systemImage: "plus.bubble")
                         .font(.body.weight(.semibold))

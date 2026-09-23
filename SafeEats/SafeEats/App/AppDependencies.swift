@@ -24,10 +24,13 @@ final class AppDependencies {
     let theme: ThemePreference
     /// State for the Scan tab, including the capture session.
     let scanModel: ScanModel
+    /// Links and settings loaded from `AppConfiguration.json`.
+    let configuration: AppConfiguration
 
     private enum ResourceName {
         static let themes = "Themes"
         static let onboarding = "OnboardingContent"
+        static let configuration = "AppConfiguration"
     }
 
     /// Loads every bundled resource and wires the object graph.
@@ -42,10 +45,12 @@ final class AppDependencies {
         let repository = try AllergenRepository(loader: loader)
         let themes = try loader.load(ThemeCollection.self, named: ResourceName.themes)
         let onboarding = try loader.load(OnboardingContent.self, named: ResourceName.onboarding)
+        let configuration = try loader.load(AppConfiguration.self, named: ResourceName.configuration)
         let profile = AllergenProfile(defaults: defaults)
 
         self.repository = repository
         self.onboarding = onboarding
+        self.configuration = configuration
         self.profile = profile
         self.theme = ThemePreference(collection: themes, defaults: defaults)
         self.scanModel = ScanModel(detector: repository.detector, profile: profile)
