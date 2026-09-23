@@ -10,10 +10,10 @@ import OSLog
 /// The set of allergens the user has asked to be warned about.
 ///
 /// Persisted to `UserDefaults` as a plain array of ids. The previous version
-/// stored the entire allergen list — names, icons and all — re-encoded on every
-/// toggle, which meant a rename in the catalog silently resurrected stale copies
-/// of the old entries. See ``migrateLegacySelectionIfNeeded(in:)`` for how
-/// existing installs are carried across.
+/// stored the entire allergen list, names and icons and all, re-encoded on
+/// every toggle. That meant a rename in the catalog silently resurrected stale
+/// copies of the old entries. See ``migrateLegacySelectionIfNeeded(in:)`` for
+/// how existing installs are carried across.
 @MainActor
 @Observable
 final class AllergenProfile {
@@ -70,7 +70,7 @@ final class AllergenProfile {
     /// `selectedAllergens`; only the enabled ones matter now. The legacy key is
     /// left in place so downgrading does not lose the user's choices.
     private static func migrateLegacySelectionIfNeeded(in defaults: UserDefaults) -> Set<AllergenID> {
-        /// Minimal view of a 1.1 record — the other fields are no longer used.
+        /// Minimal view of a 1.1 record. The other fields are no longer used.
         struct LegacyRecord: Decodable {
             let id: String
             let isEnabled: Bool

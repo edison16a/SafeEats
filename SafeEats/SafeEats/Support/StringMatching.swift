@@ -15,8 +15,8 @@ enum MatchBoundary: Sendable, Hashable {
     ///
     /// This is the default for Latin-script keywords. It keeps useful partial
     /// matches (`"corn"` inside `"cornstarch"`) while rejecting the accidental
-    /// ones the old `contains` check produced — `"ham"` inside `"graham"`,
-    /// `"oat"` inside `"coating"`.
+    /// ones the old `contains` check produced, such as `"ham"` inside
+    /// `"graham"` or `"oat"` inside `"coating"`.
     case leading
     /// Both surrounding characters must be non-alphanumeric.
     ///
@@ -28,8 +28,8 @@ extension String {
     /// Returns every range in which `needle` occurs subject to `boundary`.
     ///
     /// Both the receiver and `needle` are expected to have been folded by
-    /// ``ScannedLabelText`` already, so the search runs with `.literal` — no
-    /// per-comparison case or canonical-equivalence work.
+    /// ``ScannedLabelText`` already, so the search runs with `.literal`. That
+    /// skips per-comparison case and canonical-equivalence work.
     ///
     /// - Complexity: O(*n* × *m*) worst case for a haystack of length *n* and a
     ///   needle of length *m*. Label text is short and scans are user-driven,

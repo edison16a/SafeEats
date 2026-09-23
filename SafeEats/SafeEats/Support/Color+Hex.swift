@@ -10,7 +10,7 @@ extension Color {
     ///
     /// Returns `nil` for anything that is not 6 or 8 hex digits, so a typo in a
     /// theme resource surfaces as a logged fallback instead of silently
-    /// rendering black — which is what the previous non-failable initializer did
+    /// rendering black, which is what the previous non-failable initializer did
     /// whenever the string still carried its leading `#`.
     init?(hex: String) {
         var digits = hex.trimmingCharacters(in: .whitespacesAndNewlines)

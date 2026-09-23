@@ -136,8 +136,8 @@ final class ScanModel {
 
     /// Builds the closure the capture queue calls with a frame.
     ///
-    /// The recogniser is captured directly — it is `Sendable` and immutable —
-    /// while `self` is only touched back on the main actor.
+    /// The recogniser is captured directly, since it is `Sendable` and
+    /// immutable. `self` is only touched back on the main actor.
     private func makeFrameHandler() -> CameraSession.FrameHandler {
         { [recognizer, weak self] pixelBuffer in
             // Runs on the capture queue. The buffer is recycled the moment this
