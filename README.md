@@ -22,7 +22,9 @@ picked show in red, "may contain" warnings in amber, and everything else in gree
 # Screenshots
 
 <img width="427" height="914" alt="image" src="https://github.com/user-attachments/assets/daf35bc6-6d6b-45b0-aa7d-344300841074" />
+
 <img width="427" height="921" alt="image" src="https://github.com/user-attachments/assets/9d4f3607-0268-41fa-a78a-ea8bb653ac4a" />
+
 <img width="433" height="915" alt="image" src="https://github.com/user-attachments/assets/5de0a5aa-f91b-4ec5-b887-d5eab415bdc0" />
 
 ## Using the app
