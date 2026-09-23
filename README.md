@@ -27,6 +27,8 @@ picked show in red, "may contain" warnings in amber, and everything else in gree
 
 <img width="433" height="915" alt="image" src="https://github.com/user-attachments/assets/5de0a5aa-f91b-4ec5-b887-d5eab415bdc0" />
 
+<img width="425" height="908" alt="image" src="https://github.com/user-attachments/assets/c4d2a3ba-0613-40a1-828d-62bfc816c8f6" />
+
 ## Using the app
 
 1. Open the Allergens tab and switch on everything you need to avoid.
