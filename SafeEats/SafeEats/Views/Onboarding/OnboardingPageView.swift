@@ -7,9 +7,9 @@ import SwiftUI
 
 /// A single onboarding page.
 ///
-/// Handles all three shapes of page from the content file — image and body,
-/// body plus numbered steps, and the long terms of use — without needing a
-/// separate view for each.
+/// Handles all three shapes of page from the content file without needing a
+/// separate view for each: image and body, body plus numbered steps, and the
+/// long terms of use.
 struct OnboardingPageView: View {
     let page: OnboardingContent.Page
 

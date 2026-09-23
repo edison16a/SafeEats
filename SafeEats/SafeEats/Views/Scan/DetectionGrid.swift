@@ -23,7 +23,7 @@ struct DetectionGrid: View {
 /// One allergen result: icon, name, and the keyword that triggered it.
 ///
 /// Showing the matched term is what makes a broad match defensible. A chip
-/// reading "Soy — E322" lets the user see the app matched an additive code
+/// reading "Soy, E322" lets the user see the app matched an additive code
 /// rather than the word "soy", and decide for themselves.
 struct DetectionChip: View {
     let detection: AllergenDetection

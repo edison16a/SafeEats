@@ -67,8 +67,8 @@ struct AllergenDetectorTests {
     @Test("Capitalised and accented keywords match, which they never used to")
     func foldingMakesNonEnglishTermsReachable() {
         // The old matcher lower-cased the label but compared it against the raw
-        // keyword, so every capitalised entry — the whole German, Dutch and
-        // Spanish vocabulary — was dead weight.
+        // keyword, so every capitalised entry was dead weight. That covered the
+        // whole German, Dutch and Spanish vocabulary.
         let detector = standardDetector()
 
         #expect(detector.detect(in: "Zutaten: Erdnussöl", avoiding: [peanut]).count == 1)

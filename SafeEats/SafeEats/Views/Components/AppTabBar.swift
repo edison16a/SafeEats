@@ -38,9 +38,9 @@ enum AppTab: String, CaseIterable, Identifiable, Hashable {
 ///
 /// Drawn on the same dark panel as the rest of the chrome so that the labels
 /// stay legible over every theme, including the bright ones. Unlike the
-/// original it also marks the selected tab — previously both states were plain
-/// white, leaving no way to tell which tab you were on — and reports selection
-/// to VoiceOver.
+/// original it also marks the selected tab and reports selection to VoiceOver.
+/// Previously both states were plain white, leaving no way to tell which tab
+/// you were on.
 struct AppTabBar: View {
     @Binding var selection: AppTab
 
