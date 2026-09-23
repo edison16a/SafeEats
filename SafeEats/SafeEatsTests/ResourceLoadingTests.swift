@@ -78,6 +78,29 @@ struct ResourceDecodingTests {
         #expect(page.requiresAcknowledgement == false)
     }
 
+    @Test("A bad link in the configuration disables the button instead of throwing")
+    func configurationToleratesABadLink() throws {
+        let json = Data("""
+        {"schemaVersion": 1, "allergenRequestFormURL": ""}
+        """.utf8)
+
+        let configuration = try JSONDecoder().decode(AppConfiguration.self, from: json)
+
+        // Decoding must succeed so the app still starts; the link just goes away.
+        #expect(configuration.allergenRequestForm == nil)
+    }
+
+    @Test("A good link in the configuration parses")
+    func configurationParsesALink() throws {
+        let json = Data("""
+        {"schemaVersion": 1, "allergenRequestFormURL": "https://example.com/form"}
+        """.utf8)
+
+        let configuration = try JSONDecoder().decode(AppConfiguration.self, from: json)
+
+        #expect(configuration.allergenRequestForm?.absoluteString == "https://example.com/form")
+    }
+
     @Test("Hex colors are rejected when malformed")
     func hexParsing() {
         #expect(Color(hex: "#2e2e2e") != nil)
@@ -142,15 +165,17 @@ struct ShippedResourceTests {
         #expect(annotated.isEmpty)
     }
 
-    @Test("Themes and onboarding copy load")
+    @Test("Themes, onboarding copy and configuration load")
     func auxiliaryResourcesLoad() throws {
         let themes = try loader.load(ThemeCollection.self, named: "Themes")
         let onboarding = try loader.load(OnboardingContent.self, named: "OnboardingContent")
+        let configuration = try loader.load(AppConfiguration.self, named: "AppConfiguration")
 
         #expect(themes.defaultTheme != nil)
         #expect(themes.themes.count == 21)
         #expect(onboarding.acknowledgementPageIndex != nil)
         #expect(!onboarding.pages.isEmpty)
+        #expect(configuration.allergenRequestForm != nil)
     }
 
     @Test("A realistic label is scored end to end")
